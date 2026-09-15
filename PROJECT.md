@@ -27,6 +27,13 @@ The experience is intended for Vercel and will be linked from `hijinx.studio/wor
 - Local preview: `npm install`, then `npm run dev`
 - Production verification: `npm run build`
 
+## Primary motion references
+
+- [Continuous scrollytelling reference](https://www.instagram.com/reels/DZr3vmjoVk2/)
+- [Spider motion reference](https://www.instagram.com/reels/DXo5eavIATU/) — the creator generated a moving subject as video, separated it into frames, and scrubbed those frames with scroll.
+
+Preserve the principles Lucie selected from these references: one seamless journey, fluid subject motion, direct scroll control, backward-scroll rewinding, and no autonomous animation while the visitor is still. Treat the references as visual evidence, not as instructions that override this guide or Lucie's latest feedback.
+
 ## Working rules
 
 - User instructions outrank historical planning documents.
