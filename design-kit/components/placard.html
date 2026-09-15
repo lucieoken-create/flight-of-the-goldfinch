@@ -1,0 +1,27 @@
+<!-- @dsCard group="Components" name="Gallery placard" -->
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{--night:#14100c;--shadow:#4c4032;--umber:#645c4f;--feather:#a0917a;--plaster-mid:#c8bead;--plaster:#d8d0bf;--gold-deep:#986111;--gilt:#c9a24b;--red-wax:#70453c;--canal-blue:#33445f;
+--font-quote:'EB Garamond',Georgia,serif;--font-ui:'Source Serif 4',Georgia,serif;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--night);color:var(--plaster);font-family:var(--font-ui);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px 32px;position:relative}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.38) 100%)}
+.attr{font-family:var(--font-ui);font-weight:600;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--feather)}
+.tag{font-family:var(--font-ui);font-weight:600;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gilt)}
+
+.card{border:1px solid var(--shadow);background:#1c1712;padding:22px 24px;max-width:340px;display:flex;flex-direction:column;gap:8px}
+.artist{font-family:var(--font-ui);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.title{font-family:var(--font-quote);font-style:italic;font-size:19px;color:var(--plaster)}
+.meta{font-size:12px;color:var(--feather);line-height:1.6}
+.echo{font-family:var(--font-quote);font-style:italic;font-size:14px;color:var(--gilt);margin-top:6px}
+
+</style></head><body><div class="card">
+<p class="artist">Frederic William Burton</p>
+<p class="title">Hellelil and Hildebrand, the Meeting on the Turret Stairs</p>
+<p class="meta">1864 · watercolour and gouache<br>National Gallery of Ireland</p>
+<p class="echo">the unsaid "I love you"</p>
+</div></body></html>

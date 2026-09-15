@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>goldfinch — grey-box scroll demo</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: auto; }
+  body { background: #141210; font-family: "SF Mono", "Fira Mono", Consolas, monospace; }
+
+  #progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 2px;
+    background: #c9a24b; transform-origin: 0 50%; transform: scaleX(0); z-index: 50;
+  }
+
+  #stage { position: fixed; inset: 0; overflow: hidden; }
+  #scroll-space { height: 1150vh; }
+
+  .scene { position: absolute; inset: 0; opacity: 0; }
+  .inner { position: absolute; inset: 0; }
+
+  .scene-tag {
+    position: absolute; top: 26px; left: 0; right: 0; text-align: center;
+    font-size: 11px; letter-spacing: 0.35em; color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+  }
+
+  /* scene 1 — the painting */
+  #s1 { background: #262019; }
+  #s1 .frame {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -52%);
+    width: 280px; height: 360px; border: 14px solid #3d3428; background: #58503f;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  }
+  #s1 .panel-label {
+    position: absolute; left: 50%; top: 34%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.35); font-size: 11px; letter-spacing: 0.2em;
+  }
+  #s1 .perch {
+    position: absolute; left: 50%; top: 58%; transform: translateX(-50%);
+    width: 120px; height: 8px; background: #2e2820; border-radius: 2px;
+  }
+
+  /* scene 2 — the Met */
+  #s2 { background: #1b1c1e; }
+  #s2 .wall { position: absolute; background: #26282b; }
+  #s2 .w1 { left: 6%; top: 20%; width: 22%; height: 60%; }
+  #s2 .w2 { left: 72%; top: 14%; width: 22%; height: 70%; }
+  #s2 .small-frame { position: absolute; border: 6px solid #333; background: #3a3d40; }
+  #s2 .f1 { left: 10%; top: 30%; width: 90px; height: 120px; }
+  #s2 .f2 { left: 76%; top: 26%; width: 110px; height: 90px; }
+
+  /* scene 3 — Amsterdam */
+  #s3 { background: #17202a; }
+  #s3 .house { position: absolute; bottom: 0; background: #212c38; }
+  #s3 .h1 { left: 14%; width: 9%; height: 42%; }
+  #s3 .h2 { left: 24%; width: 11%; height: 55%; }   /* flat roof — the perch */
+  #s3 .h3 { left: 36%; width: 8%; height: 47%; }
+  #s3 .h4 { left: 58%; width: 10%; height: 50%; }
+  #s3 .h5 { left: 69%; width: 9%; height: 39%; }
+  #s3 .canal { position: absolute; bottom: 0; left: 0; right: 0; height: 12%; background: #101820; }
+  #s3 .lamp { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #c9a24b; opacity: 0.7; }
+  #s3 .l1 { left: 20%; bottom: 14%; } #s3 .l2 { left: 48%; bottom: 15%; } #s3 .l3 { left: 80%; bottom: 13%; }
+
+  /* scene 4 — Vegas */
+  #s4 { background: #26141f; }
+  #s4 .sign {
+    position: absolute; left: 40%; top: 22%; width: 20%; height: 46%;
+    background: #33202c; border: 2px solid #b3557a; box-shadow: 0 0 40px rgba(179,85,122,0.35);
+  }
+  #s4 .sign-label {
+    position: absolute; left: 50%; top: 40%; transform: translate(-50%,-50%);
+    color: #d98cab; font-size: 12px; letter-spacing: 0.3em;
+  }
+  #s4 .desert { position: absolute; bottom: 0; left: 0; right: 0; height: 18%; background: #1d1017; }
+
+  /* the bird — one persistent layer, never unmounts */
+  #bird {
+    position: absolute; left: 50%; top: 56.5%; width: 48px; height: 48px;
+    margin-left: -24px; margin-top: -32px; z-index: 20;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4));
+  }
+  .wing { transform-origin: 24px 22px; animation: flap 0.55s ease-in-out infinite; }
+  @keyframes flap { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-26deg); } }
+
+  /* quotes — live HTML text, top layer */
+  .quote {
+    position: absolute; z-index: 30; opacity: 0; max-width: 38ch;
+    font-family: Georgia, "Times New Roman", serif; color: #e8e2d5;
+    font-size: 21px; line-height: 1.65; font-style: italic;
+  }
+  .quote .attr {
+    display: block; margin-top: 14px; font-family: inherit; font-style: normal;
+    font-size: 12px; letter-spacing: 0.12em; color: #9a937f;
+  }
+  #q1 { left: 12%; top: 26%; }
+  #q2 { left: 52%; top: 24%; }
+  #q3 { left: 50%; top: 68%; transform: translateX(-50%); text-align: center; }
+
+  /* annotations — the teaching captions */
+  .annot {
+    position: fixed; bottom: 26px; left: 26px; z-index: 40; opacity: 0;
+    max-width: 46ch; font-size: 12px; line-height: 1.6; color: #c9a24b;
+  }
+  .annot::before { content: "▸ "; }
+
+  #hint {
+    position: fixed; bottom: 26px; left: 0; right: 0; text-align: center; z-index: 40;
+    color: rgba(255,255,255,0.45); font-size: 12px; letter-spacing: 0.25em;
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div id="stage">
+
+  <div class="scene" id="s1">
+    <div class="inner">
+      <div class="scene-tag">scene: the painting — placeholder</div>
+      <div class="frame"></div>
+      <div class="panel-label">FABRITIUS, 1654</div>
+      <div class="perch"></div>
+    </div>
+  </div>
+
+  <div class="scene" id="s2">
+    <div class="inner">
+      <div class="scene-tag">scene: the met, nyc — placeholder still</div>
+      <div class="wall w1"></div><div class="wall w2"></div>
+      <div class="small-frame f1"></div><div class="small-frame f2"></div>
+    </div>
+  </div>
+
+  <div class="scene" id="s3">
+    <div class="inner">
+      <div class="scene-tag">scene: amsterdam — placeholder still</div>
+      <div class="house h1"></div><div class="house h2"></div><div class="house h3"></div>
+      <div class="house h4"></div><div class="house h5"></div>
+      <div class="canal"></div>
+      <div class="lamp l1"></div><div class="lamp l2"></div><div class="lamp l3"></div>
+    </div>
+  </div>
+
+  <div class="scene" id="s4">
+    <div class="inner">
+      <div class="scene-tag">scene: vegas — placeholder still</div>
+      <div class="sign"></div>
+      <div class="sign-label">NEON</div>
+      <div class="desert"></div>
+    </div>
+  </div>
+
+  <!-- the persistent bird layer -->
+  <div id="bird">
+    <svg viewBox="0 0 48 48" width="48" height="48">
+      <polygon points="12,25 3,21 6,29" fill="#c4bdb0"/>
+      <ellipse cx="24" cy="26" rx="12" ry="7" fill="#d8d3c8"/>
+      <circle cx="35" cy="20" r="5.5" fill="#d8d3c8"/>
+      <circle cx="37.5" cy="19" r="2.6" fill="#c25b4a"/>
+      <polygon points="40,19 45.5,20 40,22" fill="#8f867a"/>
+      <circle cx="35.5" cy="19" r="1" fill="#2b2b2b"/>
+      <path class="wing" d="M22,24 Q12,8 31,15 Q29,22 22,24" fill="#b3ab9c"/>
+    </svg>
+  </div>
+
+  <div class="quote" id="q1">
+    "This is a longer placeholder passage standing in for one of the quotes you want to keep at
+    full length. The background holds still while it's on screen, so the reader sets the pace,
+    not the scroll. Two or three sentences sit comfortably here before the journey resumes."
+    <span class="attr">— DONNA TARTT, THE GOLDFINCH (PLACEHOLDER)</span>
+  </div>
+
+  <div class="quote" id="q2">
+    "A short placeholder line — the trimmed quotes land like this, one thought at a time."
+    <span class="attr">— PLACEHOLDER</span>
+  </div>
+
+  <div class="quote" id="q3">
+    "Another short placeholder, set as live HTML text — crisp at any size, never baked into footage."
+    <span class="attr">— PLACEHOLDER</span>
+  </div>
+
+  <div class="annot" id="a1">the bird is its own layer on top of the stage — it never unmounts, exactly like the spider</div>
+  <div class="annot" id="a2">scene transition = two stacked stills crossfading opacity, done in code — the bird keeps flying above both</div>
+  <div class="annot" id="a3">pinned quote: the scene holds while the reader reads at their own pace</div>
+  <div class="annot" id="a4">camera push = the castle-flythrough move, scrubbed by scroll — in production this segment becomes a frame sequence</div>
+  <div class="annot" id="a5">same asset returns to the same perch — visual consistency for free, because it's one bird everywhere</div>
+
+  <div id="hint">SCROLL</div>
+
+</div>
+
+<div id="scroll-space"></div>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.set("#s1", { opacity: 1 });
+
+  const tl = gsap.timeline({
+    defaults: { ease: "none" },
+    scrollTrigger: {
+      trigger: "#scroll-space",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 0.5,
+      onUpdate: (self) => gsap.set("#progress", { scaleX: self.progress })
+    }
+  });
+
+  /* ————— act 1: the painting ————— */
+  tl.to("#hint", { opacity: 0, duration: 0.3 }, 0.15);
+  tl.to("#a1", { opacity: 1, duration: 0.3 }, 0.25);
+
+  /* lift-off */
+  tl.to("#bird", { left: "28%", top: "28%", duration: 1.1, ease: "power1.inOut" }, 0.8);
+  tl.to("#a1", { opacity: 0, duration: 0.3 }, 1.5);
+
+  /* dissolve: painting → the Met (bird untouched) */
+  tl.to("#s1", { opacity: 0, duration: 0.8 }, 1.6);
+  tl.to("#s2", { opacity: 1, duration: 0.8 }, 1.6);
+  tl.to("#a2", { opacity: 1, duration: 0.3 }, 1.7);
+  tl.to("#a2", { opacity: 0, duration: 0.3 }, 2.7);
+
+  /* glide across the gallery */
+  tl.to("#bird", { left: "64%", top: "38%", duration: 1.3, ease: "power1.inOut" }, 2.1);
+
+  /* pinned long quote */
+  tl.to("#q1", { opacity: 1, duration: 0.4 }, 2.8);
+  tl.to("#a3", { opacity: 1, duration: 0.3 }, 3.1);
+  tl.to("#bird", { top: "43%", duration: 1.5, ease: "sine.inOut" }, 2.9);
+  tl.to("#a3", { opacity: 0, duration: 0.3 }, 4.2);
+  tl.to("#q1", { opacity: 0, duration: 0.4 }, 4.3);
+
+  /* dissolve: the Met → Amsterdam */
+  tl.to("#s2", { opacity: 0, duration: 0.8 }, 4.7);
+  tl.to("#s3", { opacity: 1, duration: 0.8 }, 4.7);
+
+  /* land on the flat rooftop (house h2: left 24%, width 11%, height 55%) */
+  tl.to("#bird", { left: "29.5%", top: "43.5%", duration: 1.1, ease: "power1.inOut" }, 5.0);
+
+  /* short quote while perched */
+  tl.to("#q2", { opacity: 1, duration: 0.4 }, 5.9);
+  tl.to("#q2", { opacity: 0, duration: 0.4 }, 6.8);
+
+  /* camera push — the "castle fly-through" move, done as a scrubbed zoom */
+  tl.to("#s3 .inner", { scale: 1.5, transformOrigin: "50% 45%", duration: 1.3, ease: "power1.in" }, 7.0);
+  tl.to("#bird", { left: "55%", top: "30%", duration: 1.3, ease: "power1.inOut" }, 7.0);
+  tl.to("#a4", { opacity: 1, duration: 0.3 }, 7.0);
+  tl.to("#a4", { opacity: 0, duration: 0.3 }, 8.2);
+
+  /* dissolve: Amsterdam → Vegas (the moment you asked about) */
+  tl.to("#s3", { opacity: 0, duration: 0.9 }, 8.3);
+  tl.to("#s4", { opacity: 1, duration: 0.9 }, 8.3);
+  tl.to("#bird", { left: "40%", top: "46%", duration: 1.2, ease: "sine.inOut" }, 8.5);
+
+  /* vegas beat */
+  tl.to("#q3", { opacity: 1, duration: 0.4 }, 9.5);
+  tl.to("#q3", { opacity: 0, duration: 0.4 }, 10.4);
+
+  /* dissolve home: Vegas → the painting, bird returns to its perch */
+  tl.to("#s4", { opacity: 0, duration: 0.8 }, 10.6);
+  tl.to("#s1", { opacity: 1, duration: 0.8 }, 10.6);
+  tl.to("#bird svg", { scaleX: -1, duration: 0.15 }, 10.55);
+  tl.to("#bird", { left: "50%", top: "56.5%", duration: 1.3, ease: "power1.inOut" }, 10.7);
+  tl.to("#bird svg", { scaleX: 1, duration: 0.15 }, 11.9);
+  tl.to("#a5", { opacity: 1, duration: 0.3 }, 11.2);
+  tl.to({}, { duration: 0.6 });
+</script>
+
+</body>
+</html>

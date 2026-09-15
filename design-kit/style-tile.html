@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>goldfinch — art direction / style tile v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* palette — sampled from the Fabritius panel (bird/0605_repro.jpg) + Lucie's blue-hour photo */
+    --night: #14100c;      /* deep ground */
+    --shadow: #4c4032;     /* panel shadow */
+    --umber: #645c4f;      /* wall shadow, UI muted */
+    --feather: #a0917a;    /* secondary text */
+    --plaster-mid: #c8bead;
+    --plaster: #d8d0bf;    /* primary text on dark */
+    --gold-deep: #986111;  /* wing bar, sampled */
+    --gilt: #c9a24b;       /* lifted gold, accents & links */
+    --red-wax: #70453c;    /* face patch, sampled — chain & rare emphasis */
+    --canal-blue: #33445f; /* from Lucie's Amsterdam night photos — scene 04 only */
+
+    --font-quote: 'EB Garamond', Georgia, serif;
+    --font-ui: 'Source Serif 4', Georgia, serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--night); color: var(--plaster); font-family: var(--font-ui); padding: 56px 32px 90px; }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  h1 { font-family: var(--font-quote); font-weight: 500; font-size: 30px; font-style: italic; margin-bottom: 6px; }
+  .sub { color: var(--feather); font-size: 14px; margin-bottom: 48px; }
+  h2 { font-family: var(--font-ui); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+       color: var(--gilt); border-bottom: 1px solid var(--shadow); padding-bottom: 10px; margin: 56px 0 22px; }
+
+  /* principle */
+  .principle { font-family: var(--font-quote); font-size: 22px; line-height: 1.6; max-width: 60ch; }
+  .principle em { color: var(--gilt); }
+
+  /* swatches */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+  .sw { border: 1px solid var(--shadow); }
+  .sw .chip { height: 84px; }
+  .sw .label { padding: 10px 12px; font-size: 12px; line-height: 1.5; }
+  .sw .hex { color: var(--feather); font-size: 11px; }
+
+  /* type specimens */
+  .spec-quote { font-family: var(--font-quote); font-weight: 500; font-size: 42px; line-height: 1.3;
+                letter-spacing: -0.01em; max-width: 24ch; margin-bottom: 14px; }
+  .spec-long { font-family: var(--font-quote); font-weight: 400; font-size: 21px; line-height: 1.75;
+               font-style: italic; max-width: 52ch; color: var(--plaster-mid); margin-bottom: 14px; }
+  .spec-attr { font-family: var(--font-ui); font-weight: 500; font-size: 11.5px; letter-spacing: 0.22em;
+               text-transform: uppercase; color: var(--feather); margin-bottom: 28px; }
+  .type-note { color: var(--feather); font-size: 13.5px; line-height: 1.7; max-width: 70ch; }
+
+  /* gauze recipe */
+  .recipe { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .recipe .col { font-size: 13.5px; line-height: 1.8; color: var(--plaster-mid); }
+  .recipe strong { color: var(--plaster); font-weight: 500; }
+  @media (max-width: 700px) { .recipe { grid-template-columns: 1fr; } }
+
+  /* prompt blocks */
+  .prompt { background: #1c1712; border: 1px solid var(--shadow); border-left: 3px solid var(--gilt);
+            padding: 14px 16px; font-family: ui-monospace, "SF Mono", Consolas, monospace;
+            font-size: 12.5px; line-height: 1.7; color: var(--plaster-mid); margin-bottom: 14px;
+            white-space: pre-wrap; }
+  .prompt b { color: var(--gilt); font-weight: 500; }
+  .plabel { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--feather); margin: 18px 0 6px; }
+
+  .foot { margin-top: 60px; border-top: 1px solid var(--shadow); padding-top: 18px;
+          color: var(--feather); font-size: 12.5px; line-height: 1.7; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The goldfinch — art direction, v1</h1>
+  <p class="sub">Style tile for the scrollytelling piece · palette sampled from the Fabritius panel · Aug 18, 2026</p>
+
+  <h2>The principle</h2>
+  <p class="principle">We are <em>inside the painting</em> the whole time — but the scenes keep their
+  photographic bones. Roughly <em>80% painting, 20% real</em>: real perspective, real light behavior,
+  real detail, seen through a painted gauze — grain, haze, varnish — as if the world inside the panel
+  had been filmed on old stock.</p>
+
+  <h2>Palette — sampled from the panel</h2>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#14100c"></div><div class="label">night · deep ground<br><span class="hex">#14100c</span></div></div>
+    <div class="sw"><div class="chip" style="background:#4c4032"></div><div class="label">panel shadow<br><span class="hex">#4c4032</span></div></div>
+    <div class="sw"><div class="chip" style="background:#645c4f"></div><div class="label">umber · muted UI<br><span class="hex">#645c4f</span></div></div>
+    <div class="sw"><div class="chip" style="background:#a0917a"></div><div class="label">feather · secondary text<br><span class="hex">#a0917a</span></div></div>
+    <div class="sw"><div class="chip" style="background:#c8bead"></div><div class="label">plaster mid<br><span class="hex">#c8bead</span></div></div>
+    <div class="sw"><div class="chip" style="background:#d8d0bf"></div><div class="label">plaster · primary text<br><span class="hex">#d8d0bf</span></div></div>
+    <div class="sw"><div class="chip" style="background:#986111"></div><div class="label">wing-bar gold (sampled)<br><span class="hex">#986111</span></div></div>
+    <div class="sw"><div class="chip" style="background:#c9a24b"></div><div class="label">gilt · accents, links<br><span class="hex">#c9a24b</span></div></div>
+    <div class="sw"><div class="chip" style="background:#70453c"></div><div class="label">sealing-wax red (face, sampled) · chain, rare emphasis<br><span class="hex">#70453c</span></div></div>
+    <div class="sw"><div class="chip" style="background:#33445f"></div><div class="label">canal blue (from Lucie's photos) · scene 04 only<br><span class="hex">#33445f</span></div></div>
+  </div>
+
+  <h2>Type</h2>
+  <p class="spec-quote">"You see the mark, you see the paint for the paint, and also the living bird."</p>
+  <p class="spec-long">"…if a painting really works down in your heart and changes the way you see, and
+  think, and feel — it's a secret whisper from an alleyway. Psst, you. Hey kid. Yes you."</p>
+  <p class="spec-attr">— Donna Tartt · The Goldfinch &nbsp;&nbsp;·&nbsp;&nbsp; 02 · Hobart &amp; Blackwell</p>
+  <p class="type-note"><strong style="color:var(--plaster)">EB Garamond</strong> (400/500, roman + italic) carries every word of
+  Tartt's — big single-line quotes and the long pinned passages both. Old-style, bookish, near-Dutch.
+  <strong style="color:var(--plaster)">Source Serif 4</strong> (400/600) is the apparatus: attributions, scene tags, colophon —
+  always small, letterspaced, uppercase, like a museum placard. An all-serif system, no sans anywhere: the one modern
+  anachronism the painted world doesn't need. (Karma, from the Fontjoy trio, was cut — its rustic texture fights EB, and this
+  piece has no true body-copy role for a third face.) Scale: perfect fourth (1.333), base 18px.</p>
+
+  <h2>The gauze — grade recipe</h2>
+  <div class="recipe">
+    <div class="col"><strong>In the generations (the 80%)</strong><br>
+    muted oil-paint color, brushwork visible only in skies, edges and light ·
+    atmospheric haze in every scene · warm varnish cast (lifted blacks, no pure white) ·
+    craquelure allowed in flat areas · composition photographic: real lens perspective, believable depth</div>
+    <div class="col"><strong>In the build (the 20%)</strong><br>
+    fine animated film grain overlay (2-3% opacity) · soft vignette ·
+    slight warm LUT via CSS filter on all scene layers · quotes stay live HTML —
+    crisp type floating in the haze is itself the 20% real · Lenis smooth scroll + GSAP ScrollTrigger</div>
+  </div>
+
+  <h2>Prompt boilerplate</h2>
+  <p class="plabel">House style — append to every scene generation</p>
+  <div class="prompt">in the style of a 17th-century Dutch oil painting seen through fine film grain and soft atmospheric haze; muted palette of aged plaster <b>#d8d0bf</b>, umber <b>#645c4f</b>, old gold <b>#986111</b>, sealing-wax red <b>#70453c</b>; photographic perspective and realistic detail beneath a thin painterly gauze — 80% painting, 20% photograph; brushwork visible only in sky, edges and light; lifted blacks, warm varnish cast, subtle craquelure in flat areas; no text, no legible faces; cinematic composition, 16:9</div>
+
+  <p class="plabel">00 · prologue</p>
+  <div class="prompt">extreme close-up of an aged oil painting on a plaster wall, craquelure and brushwork, raking light + <b>house style</b></div>
+  <p class="plabel">01 · the met</p>
+  <div class="prompt">grand museum gallery at morning, parquet floor, gilt frames, long shafts of window light with dust motes, empty of people + <b>house style</b></div>
+  <p class="plabel">02 · hobart &amp; blackwell</p>
+  <div class="prompt">cluttered antique shop interior at evening, longcase clock, gilt frames leaning, pooled lamplight, deep warm shadow + <b>house style</b></div>
+  <p class="plabel">03 · las vegas</p>
+  <div class="prompt">empty desert suburb at hard noon, stucco houses, chain-link fence, heat shimmer, vast pale sky / second pass: same street at dusk, distant neon glow + <b>house style</b></div>
+  <p class="plabel">04 · amsterdam</p>
+  <div class="prompt">amsterdam canal at blue hour in winter, lit bridge arches reflected in black water, snow falling, gabled houses, palette shifts toward canal blue <b>#33445f</b> + <b>house style</b></div>
+  <p class="plabel">05 · the gallery</p>
+  <div class="prompt">quiet museum gallery wall, soft even light, five paintings hung in a row, one empty gilt frame at the end + <b>house style</b> (the five works composited in at build time from the art/ files — never generated)</div>
+  <p class="plabel">the bird — sprite kit</p>
+  <div class="prompt">european goldfinch (carduelis carduelis: sealing-wax red face, black-and-white head, gold wing bar), painted in the manner of Fabritius, on a plain transparent background; sequence of wing positions for a glide-flap cycle; states: lift-off, glide, landing, perched; consistent size and lighting across all frames + <b>house style</b> minus haze</div>
+
+  <p class="foot">Sources: palette sampled programmatically from bird/0605_repro.jpg (k-means + targeted sampling of face patch and wing bar);
+  canal blue from Lucie's blue-hour photographs; grade direction from style/ (film-grain city photos) and the Van Gogh Amsterdam views;
+  structure references: NYT Snow Fall, UCL Library of Lost Maps, sondaven.com, lenis.dev, haoqi.design.
+  Fonts: EB Garamond + Source Serif 4 via Google Fonts (embed in this file's head).</p>
+
+</div>
+</body>
+</html>

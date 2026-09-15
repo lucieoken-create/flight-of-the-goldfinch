@@ -1,0 +1,595 @@
+:root {
+  --night: #14100c;
+  --shadow: #4c4032;
+  --umber: #645c4f;
+  --feather: #a0917a;
+  --plaster-mid: #c8bead;
+  --plaster: #d8d0bf;
+  --gold-deep: #986111;
+  --gilt: #c9a24b;
+  --red-wax: #70453c;
+  --canal-blue: #33445f;
+  --font-quote: "EB Garamond", Georgia, serif;
+  --font-ui: "Source Serif 4", Georgia, serif;
+  --z-world: 1;
+  --z-bird: 12;
+  --z-quote: 20;
+  --z-ui: 30;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--night);
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--night);
+  color: var(--plaster);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+}
+
+.stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--night);
+}
+
+.scroll-space {
+  height: 2280vh;
+}
+
+.world {
+  position: absolute;
+  inset: -4%;
+  z-index: var(--z-world);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  will-change: opacity, transform;
+}
+
+.world.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.world > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.13) saturate(0.76) contrast(0.92) brightness(0.78);
+  transform: scale(1.04);
+}
+
+.world::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(20, 16, 12, 0.2);
+  mix-blend-mode: multiply;
+}
+
+.world--painting {
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #1b1712;
+}
+
+.painting-room {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(216, 208, 191, 0.11), transparent 34%),
+    linear-gradient(135deg, #17120e, #241d16 55%, #0f0c09);
+}
+
+.painting-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(44vh, 33vw);
+  height: auto;
+  max-height: 78vh;
+  object-fit: contain;
+  translate: -50% -50%;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.48);
+  will-change: transform, opacity;
+}
+
+.chain {
+  position: absolute;
+  left: calc(50% - min(2.1vh, 1.55vw));
+  top: 49%;
+  width: 1px;
+  height: min(17vh, 13vw);
+  transform-origin: top;
+  background: linear-gradient(to bottom, rgba(152, 97, 17, 0.85), rgba(112, 69, 60, 0.38));
+  opacity: 0.8;
+}
+
+.world--met .met-light {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 72% 16%, rgba(255, 246, 217, 0.46), transparent 46%);
+  mix-blend-mode: screen;
+}
+
+.world--met > img {
+  filter: saturate(0.9) contrast(0.98) brightness(0.9);
+}
+
+.met-dust {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 30% 26%, rgba(210, 190, 150, 0.25) 0 1px, transparent 2px),
+    radial-gradient(circle at 62% 41%, rgba(210, 190, 150, 0.22) 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 66%, rgba(210, 190, 150, 0.18) 0 1px, transparent 2px);
+  background-size: 67px 71px, 89px 83px, 113px 101px;
+}
+
+.world--shop > img {
+  object-position: 58% 48%;
+  filter: saturate(0.88) contrast(0.98) brightness(0.82);
+}
+
+.shop-light {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 43%, rgba(238, 180, 92, 0.36), transparent 31%);
+  mix-blend-mode: screen;
+}
+
+.world--vegas > img {
+  position: absolute;
+  inset: 0;
+}
+
+.world--vegas .vegas-day {
+  filter: saturate(0.88) contrast(0.98) brightness(0.88);
+}
+
+.world--vegas .vegas-night {
+  opacity: 0;
+  filter: saturate(0.92) contrast(0.98) brightness(0.82);
+}
+
+.heat {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background: linear-gradient(to bottom, rgba(208, 151, 94, 0.08), rgba(115, 45, 26, 0.28));
+}
+
+.world--amsterdam > img {
+  object-position: 50% 55%;
+  filter: saturate(0.88) contrast(1) brightness(0.88);
+}
+
+.canal-dark {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(25, 34, 50, 0.08), rgba(8, 12, 20, 0.36));
+}
+
+.world--gallery {
+  inset: 0;
+  background: #cec4b2;
+}
+
+.world--gallery::after {
+  display: none;
+}
+
+.gallery-wall {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.22), transparent 28%),
+    #c8bead;
+}
+
+.gallery-track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: clamp(12vw, 19vw, 24vw);
+  width: max-content;
+  height: 100%;
+  padding: 0 30vw;
+  will-change: transform;
+}
+
+.artwork {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 10px;
+  background: #30271e;
+  box-shadow: 0 9px 18px rgba(35, 25, 15, 0.32);
+}
+
+.artwork img {
+  display: block;
+  width: auto;
+  height: min(52vh, 520px);
+  max-width: 64vw;
+  object-fit: contain;
+}
+
+.artwork--monet img,
+.artwork--clouds img {
+  width: min(58vw, 720px);
+  height: auto;
+}
+
+.empty-frame {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: min(40vw, 520px);
+  aspect-ratio: 0.72;
+  border: 18px solid #493b2e;
+  box-shadow: 0 8px 20px rgba(35, 25, 15, 0.28);
+}
+
+.empty-panel {
+  width: 100%;
+  height: 100%;
+  background: #d8d0bf;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 52%, rgba(0, 0, 0, 0.42));
+}
+
+.opening {
+  position: absolute;
+  z-index: var(--z-quote);
+  left: 50%;
+  top: 12%;
+  width: min(88vw, 46rem);
+  translate: -50% 0;
+  text-align: center;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.72);
+}
+
+.opening h1 {
+  margin: 0;
+  font-family: var(--font-quote);
+  font-size: clamp(2.25rem, 5.2vw, 5rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.opening__after {
+  margin: 0 0 0.9rem;
+  color: var(--plaster-mid);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.opening__after em {
+  font-family: var(--font-quote);
+  font-style: italic;
+  letter-spacing: 0.08em;
+}
+
+.scroll-cue {
+  position: absolute;
+  z-index: var(--z-ui);
+  left: 50%;
+  bottom: max(2rem, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  translate: -50% 0;
+  color: var(--plaster-mid);
+  font-size: 0.69rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.scroll-cue i {
+  width: 1px;
+  height: 2.8rem;
+  background: linear-gradient(var(--gilt), transparent);
+  transform-origin: top;
+  animation: fall 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes fall {
+  0% { transform: scaleY(0); opacity: 0; }
+  28% { opacity: 0.8; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+.bird {
+  position: absolute;
+  z-index: var(--z-bird);
+  left: 58.5%;
+  top: 43%;
+  width: clamp(11rem, 18vw, 19rem);
+  aspect-ratio: 3 / 2;
+  translate: -50% -50%;
+  transform-origin: 50% 55%;
+  will-change: transform, opacity;
+}
+
+.bird__canvas,
+.bird__rest {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0);
+  filter: drop-shadow(0 0.42rem 0.5rem rgba(12, 9, 6, 0.32));
+}
+
+.bird__canvas {
+  transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bird.is-ready .bird__canvas {
+  opacity: 1;
+}
+
+.bird__rest {
+  display: none;
+  width: 56%;
+  height: 56%;
+}
+
+.quotes {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-quote);
+  pointer-events: none;
+}
+
+.quote {
+  position: absolute;
+  max-width: min(42rem, 42vw);
+  margin: 0;
+  opacity: 0;
+  color: #eee8da;
+  font-family: var(--font-quote);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.78);
+  transform: translateY(1rem);
+  will-change: opacity, transform;
+}
+
+.quote p {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.45vw, 2.55rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.28;
+  text-wrap: pretty;
+}
+
+.quote cite {
+  display: block;
+  margin-top: 1.2rem;
+  color: #d2c7b3;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.quote strong {
+  color: #fffaf0;
+  font-weight: 500;
+}
+
+.quote--opening { left: 9%; top: 56%; max-width: 35vw; }
+.quote--prologue { right: 8%; top: 20%; max-width: 40vw; }
+.quote--met-one { left: 9%; top: 18%; }
+.quote--met-two { right: 8%; bottom: 12%; }
+.quote--shop-one { left: 8%; top: 13%; }
+.quote--shop-two { right: 8%; bottom: 10%; max-width: 36vw; }
+.quote--vegas { left: 8%; top: 14%; }
+.quote--amsterdam { right: 8%; top: 16%; }
+
+.quote--gallery {
+  left: 50%;
+  top: 50%;
+  width: min(54rem, 74vw);
+  max-width: none;
+  color: #211b15;
+  text-align: center;
+  text-shadow: none;
+  translate: -50% -50%;
+  transform: translateY(1rem);
+}
+
+.quote--gallery p { font-size: clamp(1.35rem, 2.3vw, 2.3rem); line-height: 1.34; }
+.quote--gallery cite { color: #655849; }
+.quote--gallery strong { color: #3f2c15; }
+
+.quote--close {
+  left: 50%;
+  top: 50%;
+  width: min(46rem, 78vw);
+  max-width: none;
+  text-align: center;
+  translate: -50% -50%;
+  transform: translateY(1rem);
+}
+
+.quote--close p {
+  font-size: clamp(1.35rem, 2.2vw, 2.15rem);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.colophon {
+  position: absolute;
+  z-index: var(--z-ui);
+  left: 50%;
+  top: 50%;
+  width: min(38rem, 82vw);
+  translate: -50% -50%;
+  transform: translateY(1rem);
+  opacity: 0;
+  text-align: center;
+}
+
+.colophon__title {
+  margin: 0 0 1.4rem;
+  color: var(--plaster);
+  font-family: var(--font-quote);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-style: italic;
+}
+
+.colophon p:not(.colophon__title) {
+  color: var(--feather);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  line-height: 1.85;
+}
+
+.colophon button {
+  position: relative;
+  margin-top: 2rem;
+  padding: 0.85rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(201, 162, 75, 0.72);
+  background: none;
+  color: var(--gilt);
+  cursor: pointer;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.colophon button:focus-visible {
+  outline: 1px solid var(--gilt);
+  outline-offset: 0.45rem;
+}
+
+@media (max-width: 720px) {
+  .scroll-space { height: 2350vh; }
+
+  .painting-panel {
+    width: min(72vw, 38vh);
+    max-height: 70vh;
+  }
+
+  .chain {
+    left: 47.4%;
+    top: 50%;
+    height: 12vh;
+  }
+
+  .opening { top: 8%; }
+  .opening h1 { font-size: clamp(2.2rem, 11vw, 4rem); line-height: 0.98; }
+  .opening__after { font-size: 0.64rem; }
+
+  .bird {
+    left: 59%;
+    top: 43.5%;
+    width: clamp(10rem, 48vw, 15rem);
+  }
+
+  .quote {
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: 8%;
+    width: min(86vw, 32rem);
+    max-width: none;
+    translate: -50% 0;
+    transform: translateY(1rem);
+    text-align: center;
+  }
+
+  .quote p { font-size: clamp(1.25rem, 5.7vw, 1.8rem); line-height: 1.32; }
+  .quote cite { font-size: 0.62rem; line-height: 1.5; }
+
+  .quote--prologue,
+  .quote--met-two,
+  .quote--shop-one,
+  .quote--vegas,
+  .quote--amsterdam {
+    top: 10%;
+    bottom: auto;
+  }
+
+  .quote--gallery,
+  .quote--close {
+    top: 50%;
+    bottom: auto;
+    width: 84vw;
+    translate: -50% -50%;
+    transform: translateY(1rem);
+  }
+
+  .quote--gallery p { font-size: clamp(1.35rem, 5.6vw, 1.8rem); }
+  .quote--close p { font-size: clamp(1.15rem, 4.9vw, 1.55rem); line-height: 1.45; }
+
+  .gallery-track {
+    gap: 30vw;
+    padding: 0 36vw;
+  }
+
+  .artwork img { height: min(44vh, 430px); max-width: 72vw; }
+  .artwork--monet img,
+  .artwork--clouds img { width: 72vw; }
+  .empty-frame { width: 68vw; border-width: 12px; }
+
+  .world--shop > img { object-position: 62% 50%; }
+  .world--vegas .vegas-day { object-position: 58% 50%; }
+  .world--vegas .vegas-night { object-position: 58% 50%; }
+  .world--amsterdam > img { object-position: 50% 48%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue i { animation: none; opacity: 0.65; }
+  .painting-panel,
+  .world > img,
+  .gallery-track,
+  .empty-frame,
+  .bird { transform: none !important; }
+
+  .bird__canvas { display: none; }
+  .bird__rest { display: block; opacity: 1 !important; }
+}

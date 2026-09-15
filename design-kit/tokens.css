@@ -1,0 +1,49 @@
+/* goldfinch — design tokens v1.1
+   Palette sampled from the Fabritius panel (bird/0605_repro.jpg); canal blue from Lucie's
+   blue-hour Amsterdam photos. Fonts: EB Garamond (all Tartt words) + Source Serif 4 (apparatus).
+   Embed:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+*/
+
+:root {
+  /* color */
+  --night: #14100c;        /* deep ground */
+  --shadow: #4c4032;       /* panel shadow */
+  --umber: #645c4f;        /* wall shadow, muted UI */
+  --feather: #a0917a;      /* secondary text */
+  --plaster-mid: #c8bead;
+  --plaster: #d8d0bf;      /* primary text on dark */
+  --gold-deep: #986111;    /* wing bar, sampled */
+  --gilt: #c9a24b;         /* lifted gold — accents, links, progress */
+  --red-wax: #70453c;      /* face patch, sampled — chain + rare emphasis only */
+  --canal-blue: #33445f;   /* scene 04 only */
+
+  /* type */
+  --font-quote: 'EB Garamond', Georgia, serif;
+  --font-ui: 'Source Serif 4', Georgia, serif;
+
+  /* scale — perfect fourth (1.333), base 18px */
+  --font-size-sm: 0.7502rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.333rem;
+  --font-size-xl: 1.7769rem;
+  --font-size-2xl: 2.3686rem;
+  --font-size-3xl: 3.1573rem;
+  --font-size-4xl: 4.2087rem;
+
+  --line-height-base: 1.5;
+  --line-height-quote-long: 1.8;
+  --line-height-display: 1.3;
+
+  /* apparatus (museum-placard) styling */
+  --label-size: 11px;
+  --label-tracking: 0.24em;   /* uppercase, weight 600 */
+  --attr-tracking: 0.22em;
+
+  /* gauze — the built 20% */
+  --grain-opacity: 0.025;     /* animated film grain overlay */
+  --vignette: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.38) 100%);
+  --scene-filter: sepia(0.12) saturate(0.92) brightness(0.98);  /* warm varnish cast on scene layers */
+}

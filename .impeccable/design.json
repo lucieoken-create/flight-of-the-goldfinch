@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-15T00:00:00Z",
+  "title": "Design System: Flight of the Goldfinch",
+  "extensions": {
+    "colorMeta": {
+      "night": { "role": "neutral", "displayName": "Night", "canonical": "#14100c", "tonalRamp": ["#14100c", "#2b241c", "#4c4032", "#645c4f", "#827563", "#a0917a", "#c8bead", "#e8e2d7"] },
+      "gilt": { "role": "primary", "displayName": "Gilt", "canonical": "#c9a24b", "tonalRamp": ["#2b1c08", "#54370b", "#79500e", "#986111", "#b8842d", "#c9a24b", "#dfc887", "#f3e8c8"] },
+      "canal-blue": { "role": "secondary", "displayName": "Canal Blue", "canonical": "#33445f", "tonalRamp": ["#101722", "#1c293b", "#33445f", "#4e6486", "#7286a3", "#99a9bf", "#c2ccd8", "#edf0f4"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Literary Display", "purpose": "Title and major literary emphasis." },
+      "quote": { "displayName": "Quotation", "purpose": "Every quotation from Donna Tartt." },
+      "apparatus": { "displayName": "Museum Apparatus", "purpose": "Credits, colophon, and controls." }
+    },
+    "shadows": [
+      { "name": "painting-depth", "value": "0 10px 28px rgba(0, 0, 0, 0.48)", "purpose": "Places the Fabritius panel inside the dark room." },
+      { "name": "bird-depth", "value": "0 0.42rem 0.5rem rgba(12, 9, 6, 0.32)", "purpose": "Separates the moving bird from atmospheric scenes." }
+    ],
+    "motion": [
+      { "name": "scroll-scrub", "value": "0.75", "purpose": "Smooths the reversible master timeline." },
+      { "name": "confident-arrival", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Short opacity arrivals and canvas readiness." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "720px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Restart control",
+      "kind": "button",
+      "refersTo": "restart-button",
+      "description": "Returns the visitor to the beginning from the colophon.",
+      "html": "<button class=\"ds-restart\" type=\"button\">Return to the beginning</button>",
+      "css": ".ds-restart { border: 0; background: transparent; color: #d8d0bf; font: 600 0.72rem/1.4 'Source Serif 4', Georgia, serif; letter-spacing: 0.13em; text-transform: uppercase; text-underline-offset: 0.3em; cursor: pointer; } .ds-restart:hover { color: #c9a24b; } .ds-restart:focus-visible { outline: 1px solid #c9a24b; outline-offset: 6px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The world inside the panel, filmed on old stock.",
+    "overview": "A continuous portfolio artwork with photographic bones beneath a painted, filmic atmosphere. The interface recedes and the visitor controls time through scroll.",
+    "keyCharacteristics": ["Old-master warmth", "Crisp literary typography", "Continuous reversible motion", "Real gallery artworks"],
+    "rules": [
+      { "name": "The Scarcity Rule", "body": "Gilt, red wax, and canal blue remain rare so they retain narrative force.", "section": "colors" },
+      { "name": "The Two Voices Rule", "body": "EB Garamond carries literature and Source Serif 4 carries apparatus; introduce no third typographic voice.", "section": "typography" }
+    ],
+    "dos": ["Make every transition feel continuous and reversible.", "Keep the bird motionless when the visitor is motionless.", "Let the five real artworks remain clear and unobstructed."],
+    "donts": ["Do not add chapters, progress UI, sound, or a return-to-Hijinx link.", "Do not perform snow or a whiteout in Amsterdam.", "Do not bake quotations into imagery or repeat their attribution."]
+  }
+}
