@@ -29,4 +29,4 @@ The persistent bird was generated from the supplied European-goldfinch anatomy a
 
 Run `npm test` and `npm run build`. Vercel uses the Vite preset and serves `dist/`. The build copies only the 17 media files referenced in the application; original studies stay in the private repository and local folder. No application secrets or environment variables are required. Google Fonts is requested by the page, with local serif fallbacks.
 
-Lucie approved the existing artwork and excerpts for the initial breakfast presentation and hosted follow-up sharing on October 1, 2026. Rights research is retained in `docs/rights-review.md`. The first release uses option C for personal commentary.
+Lucie approved the existing artwork and excerpts for an initial production. Rights research is retained in `docs/rights-review.md`. The first release uses option C for personal commentary.
