@@ -10,6 +10,7 @@ import { bridgePassage, bridgePassageGeometry, bridgeFlight, paintBridgePassage 
 import { returnPassage, returnGeometry, apertureMask, perchRegistration, landingPoseTime, returnFlight } from './return-passage.js';
 import { READING_END, readingIntervals, readingState, reflectionReveal, mountEditorial } from './editorial.js';
 import { createRestartWipe } from './restart-wipe.js';
+import { createImageLoader } from './image-loader.js';
 import './style.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -27,7 +28,7 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const shortViewport = window.matchMedia('(max-height: 520px) and (max-width: 1000px)');
 const worlds = Object.fromEntries(['painting', 'entrance', 'met', 'shop', 'woodwork', 'vegas', 'amsterdam', 'gallery'].map(name => [name, $('#world-' + name)]));
 const quoteElements = quotations.map(([id, start, end]) => ({ element: $('#' + id), reflection: $('#' + id + ' .reflection'), start, end }));
-const pending = new Map();
+const loadImage = createImageLoader();
 const closingReadingStart = readingIntervals.find(slot => slot.passage === 'closing').from;
 let size, centres, scrollTrigger, lenis, tick, requestedTime = 0;
 let cinematic = false;
@@ -41,22 +42,6 @@ const alpha = (element, opacity) => {
 const move = (element, x, y, scale = 1, rotate = 0) => {
   element.style.transform = 'translate3d(' + x.toFixed(3) + 'px,' + y.toFixed(3) + 'px,0) scale(' + scale.toFixed(5) + ') rotate(' + rotate.toFixed(3) + 'deg)';
 };
-
-function loadImage(image) {
-  if (pending.has(image)) return pending.get(image);
-  const promise = new Promise(resolve => {
-    const finish = async () => {
-      try { await image.decode(); } catch { /* failed images resolve false */ }
-      resolve(image.naturalWidth > 0);
-    };
-    image.addEventListener('load', finish, { once: true });
-    image.addEventListener('error', () => resolve(false), { once: true });
-    if (image.dataset.src) image.src = image.dataset.src;
-    if (image.complete && image.naturalWidth) finish();
-  });
-  pending.set(image, promise);
-  return promise;
-}
 
 function loadWorld(name) {
   const world = worlds[name];
@@ -462,8 +447,26 @@ function refreshLayout(position = requestedTime) {
   render(point);
 }
 
+function textFitsStage() {
+  // Measure the same composition even while the reading view hides the stage.
+  stage.classList.add('is-measuring');
+  try {
+    const mobile = window.innerWidth <= 720;
+    const elements = [...quoteElements.map(quote => quote.element),
+      ...stage.querySelectorAll('.reflection-beat:not(.reflection-beat--invitation)')];
+    return elements.every(element => {
+      const bounds = element.getBoundingClientRect();
+      const needsPainting = mobile && ['q7', 'q3', 'reflection-introduction'].includes(element.id);
+      const bottomSpace = needsPainting ? 84 + window.innerHeight * .025 : 12;
+      return bounds.top >= 12 && bounds.bottom <= window.innerHeight - bottomSpace;
+    });
+  } finally {
+    stage.classList.remove('is-measuring');
+  }
+}
+
 function configureMode() {
-  const nextCinematic = !reduced.matches && !shortViewport.matches && !failed;
+  const nextCinematic = !reduced.matches && !shortViewport.matches && !failed && textFitsStage();
   if (configured && nextCinematic === cinematic) {
     refreshLayout();
     return;
@@ -517,10 +520,15 @@ shortViewport.addEventListener('change', configureMode);
 let resizeFrame;
 window.addEventListener('resize', () => {
   const position = requestedTime;
+  refreshing = true;
   cancelAnimationFrame(resizeFrame);
-  resizeFrame = requestAnimationFrame(() => refreshLayout(position));
+  resizeFrame = requestAnimationFrame(() => {
+    requestedTime = position;
+    configureMode();
+    refreshing = false;
+  });
 });
-document.fonts.ready.then(() => refreshLayout());
+document.fonts.ready.then(configureMode);
 function resetToBeginning() {
     lenis?.scrollTo(0, { immediate: true, force: true });
     window.scrollTo(0, 0);

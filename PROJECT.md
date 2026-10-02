@@ -48,11 +48,15 @@ Preserve the principles Lucie selected from these references: one seamless journ
 - Amsterdam contains no literal snow or whiteout transition.
 - The gallery holds long enough to view all five paintings before the empty-frame portal.
 - The closing control returns to the beginning of the experience.
-- Do not deploy or publish without Lucie's explicit request.
+- Do not deploy or publish without Lucie's explicit go-ahead for that action. Pushing to main triggers Vercel production and requires deployment authorization. A local review or fix request does not authorize deployment.
 
 ## Current status
 
-October 1 release preparation: Lucie selected frame option C, with foliate corners and open rails. She authorized publishing this repository to GitHub and deploying to Vercel for a private breakfast presentation and follow-up sharing. Keep the chosen artwork and excerpts. Website integration is deferred. This records her release decision, not a change to the rights evidence.
+October 1 release approval: After reviewing the final sweep, Lucie explicitly authorized pushing its fixes to GitHub with the connected Vercel update. She approved the experience for the breakfast and has no further design feedback for this version. Future production updates still require her go-ahead. Next planned work is a breakfast talk track about her creative direction and the decisions behind the piece.
+
+October 1 final sweep: The local checkout is connected to the private GitHub repository `lucieoken-create/flight-of-the-goldfinch`. The published baseline is `ba5385a956ca39543e81058e7e968799d4faf2aa`; Vercel hosts that version. After the initial deployment Lucie clarified that future launches require her explicit go-ahead. Keep review fixes local. The Impeccable and Emil Kowalski pass fixes credits scrolling, content-fit reading fallback, passage preservation on resize, and an image-failure loading stall. All 35 tests and the build pass. Evidence: `.impeccable/review/final-sweep/verification.md`.
+
+October 1 release preparation: Lucie selected frame option C, with foliate corners and open rails. She authorized GitHub publication and wanted a Vercel link for a private breakfast presentation and follow-up sharing. The assistant launched the first Vercel version; Lucie then clarified that she wanted to handle that step herself. Keep the chosen artwork and excerpts. Website integration is deferred. This records her release decision, not a change to the rights evidence.
 
 October 1 finishing pass: Personal commentary now uses pale gold Source Serif 4 italic with curved gold frames and small corner curls. The invitation remains unframed. The intro mentions "passages and scenes," and Amsterdam uses Lucie's exact revised sentence. The 29rem colophon combines the literary/artwork and creative-direction credits in one paragraph. Resizing now keeps the reading score stable; the short-window reading alternative opens at the current passage, and returning to the cinematic view restores its prior position. Lenis and ScrollTrigger measurements refresh together. Evidence is in `.impeccable/review/gold-notes-resize/verification.md`.
 
@@ -86,4 +90,4 @@ Follow-up on September 29: Lucie approved the landing mechanics but found a ghos
 
 A second September 29 follow-up tried the original painted body with separately articulated wings. Lucie rejected that study because of a pale outline, the front-facing head during flight, and the changed motion. At her request, the previous full-body atlas renderer and flight timing are restored. A regenerated v4 atlas narrows the chest and lengthens the tail while retaining the original generated pose sequence and rightward flight. Crops and anatomical landmarks are remeasured for the new image. The earlier original-paint final landing pose, short background handoff, approved paths and cameras, longer closing hold, and all copy remain intact. This new source-art pass is installed locally for review; its prompt and provenance are in `generations/goldfinch-painted-atlas-v4.md`.
 
-Next: Lucie reviews the framed commentary, reading pace and restart wipe. Settle the public-use rights choices and remaining device/loading checks, then prepare the Vercel release. All major passages are implemented locally. Track verification in `docs/final-build.md` and rights in `docs/rights-review.md`. Do not publish without Lucie's explicit request.
+Next: Publish the approved sweep and verify the connected deployment, then prepare the breakfast talk track. Physical-device, throttled-network and native reduced-motion checks remain outside this verification. See `docs/final-build.md` for evidence.

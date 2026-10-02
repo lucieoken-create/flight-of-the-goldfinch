@@ -2,6 +2,12 @@
 
 ## Status
 
+### Final design and motion sweep: October 1
+
+Impeccable and Emil Kowalski review completed locally. Frame C and commentary timing remain. Fixed independent scrolling in expanded credits, clipped text at 320x568, passage drift during responsive mode changes, and an already-failed opening image that could stall loading. Browser verification covered 1280x720, 390x844, 320x568, pointer and keyboard restart, pause/reverse commentary behavior, a reduced-motion fixture and deliberate image failure. All 35 tests and the build pass. Details and screenshots: `.impeccable/review/final-sweep/verification.md`.
+
+No commit, push or deployment occurred during this sweep. The published baseline remains `ba5385a`. Native OS preference switching, physical phones and throttled loading remain untested.
+
 ### Gold commentary, finishing copy and resize repair: October 1
 
 Commentary has pale gold Source Serif 4 italic text and a gold SVG frame with curved shoulders and small corner curls. The translucent backing and unframed invitation remain. The introduction mentions passages and scenes. Amsterdam uses Lucie's exact revised reflection; the literary excerpt is unchanged. The closing credits are narrowed to 29rem, and attribution and creative-direction text share one paragraph.

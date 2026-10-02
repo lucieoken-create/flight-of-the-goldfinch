@@ -120,10 +120,20 @@ Lucie subsequently loved the sky passage and approved the next focused pass: fol
 
 ## Hosting
 
-- Deploy on Vercel after the final review.
+- Deploy on Vercel only with Lucie's explicit go-ahead, including pushes that trigger production automatically.
 - No custom domain requirement for this iteration.
 - Link the finished piece from `https://hijinx.studio/work#experiments`.
 
 ## October 1, 2026: foliate frame and first hosted version
 
 Lucie selected option C from the four-frame study: foliate corners and open gold rails. Retain pale gold italic commentary and translucent umber. She authorized GitHub publication and a Vercel link for a private breakfast presentation and later networking shares, with the current artwork and excerpts. A private repository is the default. Adding the experience to Hijinx is deferred.
+
+## October 1, 2026: deployment boundary and final sweep
+
+After the assistant launched the first Vercel version, Lucie clarified that she wanted to perform that step and that future launches require her explicit go-ahead. The connected main branch auto-deploys. Local design review does not authorize a push or deployment.
+
+The Impeccable and Emil Kowalski sweep keeps frame C and the established commentary timing. Quotes arrive first; notes fade in with further scroll and retain their state on pause or reverse. The reading alternative now also applies when measured prose will not fit the stage. Expanded credits scroll independently; switching layouts retains the passage; an opening image that fails before listeners attach now selects the reading alternative. These fixes are local and unpublished.
+
+## October 1, 2026: final sweep approved for publication
+
+Lucie approved pushing the reviewed fixes to GitHub and the connected Vercel update. She has no further design feedback for the breakfast version. The next requested deliverable is a talk track about her creative direction and the decisions behind the experience.
