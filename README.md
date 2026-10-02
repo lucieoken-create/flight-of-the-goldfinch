@@ -23,4 +23,10 @@ The first environment calibration is documented in `generations/calibration-v1.m
 
 Production images for the Met and the matched Las Vegas day/dusk transition are documented in `generations/met-vegas-v1.md` and installed in the experience. The real gallery artworks remain composited from the supplied source files.
 
-The persistent bird was generated from the supplied European-goldfinch anatomy and Fabritius painting references. Its 33-frame, two-wingbeat cycle is scrubbed directly by scroll: it advances or reverses with the visitor and freezes when scrolling stops. It never plays autonomously.
+The persistent bird was generated from the supplied European-goldfinch anatomy and Fabritius painting references. Its current full-body painted atlas is scrubbed directly by scroll: it advances or reverses with the visitor and freezes when scrolling stops. It never plays autonomously.
+
+## Build and deploy
+
+Run `npm test` and `npm run build`. Vercel uses the Vite preset and serves `dist/`. The build copies only the 17 media files referenced in the application; original studies stay in the private repository and local folder. No application secrets or environment variables are required. Google Fonts is requested by the page, with local serif fallbacks.
+
+Lucie approved the existing artwork and excerpts for the initial breakfast presentation and hosted follow-up sharing on October 1, 2026. Rights research is retained in `docs/rights-review.md`. The first release uses option C for personal commentary.

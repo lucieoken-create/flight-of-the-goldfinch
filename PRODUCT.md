@@ -29,7 +29,7 @@ The piece will be deployed on Vercel and linked from `hijinx.studio/work#experim
 - No sound in this iteration.
 - The bird's flight frames advance and reverse with scroll and freeze when scrolling stops.
 - The closing control returns to the beginning, not to Hijinx.
-- No separate rights-review work is planned for this portfolio iteration.
+- Public website and future Substack use are within the October 1 rights review in `docs/rights-review.md`; several permissions and image-source questions remain unresolved.
 - Existing stack: Vite, GSAP ScrollTrigger, Lenis, and canvas-rendered frame sequences.
 
 ## Brand Commitments

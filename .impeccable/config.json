@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-02T01:00:27.993Z",
+        "reason": "Runtime loadImage promotes real data-src assets to src on demand; intrinsic dimensions and a complete failure reading view are implemented in src/experience.js. No placeholder artwork."
+      }
+    ]
+  }
+}

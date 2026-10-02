@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
       rel="stylesheet"
     />
     <title>Flight of the Goldfinch</title>
@@ -21,73 +21,102 @@
       <div class="stage" aria-label="Flight of the Goldfinch">
         <section class="world world--painting is-visible" id="world-painting">
           <div class="painting-room"></div>
-          <img
-            class="painting-panel"
-            src="/assets/goldfinch-painting.jpg"
-            alt="The Goldfinch by Carel Fabritius"
-          />
-          <div class="chain" aria-hidden="true"></div>
+          <div class="painting-panel">
+            <img width="1179" height="1800" class="painting-original" src="/assets/optimized/painting.jpg" alt="The Goldfinch by Carel Fabritius" fetchpriority="high" decoding="async" />
+            <img width="1177" height="1800" class="painting-empty" data-src="/assets/optimized/painting-empty.jpg" alt="" decoding="async" />
+            <div class="painting-frame" aria-hidden="true"></div>
+          </div>
+          <div class="painting-veil"></div>
         </section>
 
-        <section class="world world--met" id="world-met" aria-hidden="true">
-          <img src="/assets/generations/met-v1.png" alt="" />
-          <div class="met-light" aria-hidden="true"></div>
-          <div class="met-dust" aria-hidden="true"></div>
-        </section>
-
-        <section class="world world--shop" id="world-shop" aria-hidden="true">
-          <img src="/assets/generations/shop-calibration-v1.png" alt="" />
-          <div class="shop-light" aria-hidden="true"></div>
-        </section>
-
-        <section class="world world--vegas" id="world-vegas" aria-hidden="true">
-          <img class="vegas-day" src="/assets/generations/vegas-day-v1.png" alt="" />
-          <img class="vegas-night" src="/assets/generations/vegas-dusk-v1.png" alt="" />
-          <div class="heat" aria-hidden="true"></div>
-        </section>
-
-        <section class="world world--amsterdam" id="world-amsterdam" aria-hidden="true">
-          <img src="/assets/generations/amsterdam-calibration-v4.png" alt="" />
-          <div class="canal-dark" aria-hidden="true"></div>
-        </section>
-
-        <section class="world world--gallery" id="world-gallery" aria-hidden="true">
-          <div class="gallery-wall"></div>
-          <div class="gallery-track">
-            <figure class="artwork artwork--bosschaert">
-              <img src="/assets/art/bosschaert.jpg" alt="Vase of Flowers in a Window by Ambrosius Bosschaert" />
-            </figure>
-            <figure class="artwork artwork--burton">
-              <img src="/assets/art/burton.jpg" alt="Hellelil and Hildebrand by Frederic William Burton" />
-            </figure>
-            <figure class="artwork artwork--skull">
-              <img src="/assets/art/okeeffe-skull.jpg" alt="Cow's Skull with Calico Roses by Georgia O'Keeffe" />
-            </figure>
-            <figure class="artwork artwork--monet">
-              <img src="/assets/art/monet.jpg" alt="Le Grand Canal by Claude Monet" />
-            </figure>
-            <figure class="artwork artwork--clouds">
-              <img src="/assets/art/okeeffe-clouds.jpg" alt="Above the Clouds I by Georgia O'Keeffe" />
-            </figure>
-            <div class="empty-frame" aria-hidden="true"><div class="empty-panel"></div></div>
+        <section class="world world--entrance" id="world-entrance" aria-hidden="true">
+          <div class="scene-plane entrance-plane">
+            <img width="1672" height="941" class="entrance-depth" data-src="/assets/optimized/met-rain-entrance.jpg" alt="Rain-wet steps at the Met's Fifth Avenue entrance." />
+            <img width="1672" height="941" class="entrance-shell" data-src="/assets/optimized/met-rain-entrance.jpg" alt="" />
           </div>
         </section>
 
+        <section class="world world--met" id="world-met" aria-hidden="true">
+          <div class="met-arrival-camera">
+          <div class="scene-plane met-plane">
+            <img width="1672" height="941" class="met-depth" data-src="/assets/optimized/met.jpg" alt="" />
+            <img width="1672" height="941" class="met-shell" data-src="/assets/optimized/met.jpg" alt="" />
+            <div class="met-arrival-shade"></div>
+          </div>
+          <div class="met-light"></div>
+          <div class="met-shadow"></div>
+          </div>
+        </section>
+
+        <section class="world world--shop" id="world-shop" aria-hidden="true">
+          <div class="shop-camera">
+            <div class="scene-plane shop-plane"><img width="1672" height="941" data-src="/assets/optimized/shop.jpg" alt="" /></div>
+            <div class="shop-light"></div>
+          </div>
+        </section>
+
+        <section class="world world--vegas" id="world-vegas" aria-hidden="true">
+          <div class="scene-plane vegas-plane">
+            <img width="1672" height="941" class="vegas-day" data-src="/assets/optimized/vegas-day.jpg" alt="" />
+            <img width="1672" height="941" class="vegas-night" data-src="/assets/optimized/vegas-night.jpg" alt="" />
+            <div class="vegas-arrival-shade"></div>
+          </div>
+          <div class="heat" aria-hidden="true"></div>
+        </section>
+
+        <div class="world world--woodwork" id="world-woodwork" aria-hidden="true">
+          <div class="shop-woodwork"><img width="1024" height="1536" data-src="/assets/optimized/cabinet-glass-v1.webp" alt="" /></div>
+        </div>
+
+        <section class="world world--amsterdam" id="world-amsterdam" aria-hidden="true">
+          <div class="scene-plane amsterdam-plane"><img width="1672" height="941" data-src="/assets/optimized/amsterdam.jpg" alt="" /></div>
+          <div class="canal-dark" aria-hidden="true"></div>
+        </section>
+
+        <canvas class="sky-passage" id="sky-canvas" aria-hidden="true"></canvas>
+        <canvas class="bridge-passage" id="bridge-canvas" aria-hidden="true"></canvas>
+
+        <section class="world world--gallery" id="world-gallery" aria-hidden="true">
+          <div class="gallery-wall"></div>
+          <div class="gallery-arrival-camera">
+          <div class="gallery-track">
+            <figure class="artwork artwork--bosschaert">
+              <img width="1071" height="1500" data-src="/assets/optimized/bosschaert.jpg" alt="Vase of Flowers in a Window by Ambrosius Bosschaert" />
+            </figure>
+            <figure class="artwork artwork--burton">
+              <img width="966" height="1500" data-src="/assets/optimized/burton.jpg" alt="Hellelil and Hildebrand by Frederic William Burton" />
+            </figure>
+            <figure class="artwork artwork--skull">
+              <img width="997" height="1500" data-src="/assets/optimized/okeeffe-skull.jpg" alt="Cow's Skull with Calico Roses by Georgia O'Keeffe" />
+            </figure>
+            <figure class="artwork artwork--monet">
+              <img width="1500" height="1190" data-src="/assets/optimized/monet.jpg" alt="Le Grand Canal by Claude Monet" />
+            </figure>
+            <figure class="artwork artwork--clouds">
+              <img width="1500" height="1126" data-src="/assets/optimized/okeeffe-clouds.jpg" alt="Above the Clouds I by Georgia O'Keeffe" />
+            </figure>
+            <div class="empty-frame" aria-hidden="true"><div class="empty-panel"></div></div>
+          </div>
+          </div>
+          <div class="gallery-arrival-shade"></div>
+        </section>
+
+        <canvas class="rain" id="rain-canvas" aria-hidden="true"></canvas>
         <div class="vignette" aria-hidden="true"></div>
+        <div id="editorial-shade" aria-hidden="true"></div>
 
         <header class="opening" id="opening">
+          <h1>Flight of<br />the Goldfinch</h1>
           <p class="opening__after">An experience inspired by and using quotes from<br /><em>The Goldfinch</em> by Donna Tartt</p>
-          <h1>Flight of the Goldfinch</h1>
         </header>
 
         <div class="scroll-cue" id="scroll-cue" aria-hidden="true">
-          <span>Scroll</span>
-          <i></i>
+          <span>Scroll to follow</span>
+          <svg width="16" height="34" viewBox="0 0 16 34" fill="none" aria-hidden="true"><path d="M8 1v30M2 25l6 6 6-6" stroke="currentColor" stroke-width="1.25" /></svg>
         </div>
 
         <div class="bird" id="bird" aria-hidden="true">
-          <canvas class="bird__canvas" id="bird-canvas" width="882" height="588"></canvas>
-          <img class="bird__rest" src="/assets/generations/goldfinch-cutout-v1.png" alt="" />
+          <canvas class="bird__canvas" id="bird-canvas" width="576" height="576"></canvas>
         </div>
 
         <div class="quotes">
@@ -134,15 +163,18 @@
 
         <footer class="colophon" id="colophon">
           <p class="colophon__title">Flight of the Goldfinch</p>
-          <p>
-            After <em>The Goldfinch</em> by Donna Tartt.<br />
-            Carel Fabritius, <em>The Goldfinch</em>, 1654 · Mauritshuis, The Hague.<br />
-            With works by Bosschaert, Burton, O’Keeffe, and Monet.
-          </p>
+          <p>A personal response to <em>The Goldfinch</em> by Donna Tartt.</p>
+          <p>Selected quotations from the novel; all quoted literary text by Donna Tartt. Original paintings credited individually. Concept, personal reflections, and creative direction by Lucie Oken, with AI-assisted coding and select generated assets.</p>
+          <p>An independent project. No affiliation with or endorsement by the author, artists, museums, or rights holders is implied.</p>
+          <details class="artwork-credits"><summary>Artwork credits</summary>
+            <ul id="artwork-credits"><li><em>The Goldfinch</em>. Carel Fabritius, 1654. Mauritshuis, The Hague.</li></ul>
+            <p>The environments and flying bird are imagined interpretations made with AI assistance.</p>
+          </details>
           <button type="button" id="restart">Return to the beginning</button>
         </footer>
       </div>
 
+      <p id="asset-status" role="status" aria-live="polite">Preparing the next view…</p>
       <div class="scroll-space" id="scroll-space" aria-hidden="true"></div>
     </main>
 

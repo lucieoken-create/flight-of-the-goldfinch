@@ -1,6 +1,6 @@
 # The goldfinch — canonical quotes
 
-Source of truth for all quote text and placement. Trims use Tartt's exact words; ellipses mark cuts. Do not re-trim, re-order, or re-place without Lucie. The opening credits Donna Tartt and *The Goldfinch* once; individual quotations carry no repeated byline.
+Source of truth for all quote text and placement. Trims use Tartt's exact words; ellipses mark cuts. Do not re-trim, re-order, or re-place without Lucie. The opening credits Donna Tartt and *The Goldfinch* once. Following Lucie's October 1 request, each quotation now carries its fictional speaker or narrator in smaller text, without repeating the author byline. Personal reflections live separately in `src/editorial.js` and are not literary quotations.
 
 ## In use (10)
 
@@ -42,4 +42,4 @@ Source of truth for all quote text and placement. Trims use Tartt's exact words;
 ## Notes
 
 - Amsterdam contains no literal snow or whiteout; Q3 remains in the prologue.
-- No separate rights-review work is planned for this portfolio iteration; the opening and colophon carry the source credit.
+- Public-use rights review: `rights-review.md`. The opening and colophon carry the source credit; the credit does not establish permission.

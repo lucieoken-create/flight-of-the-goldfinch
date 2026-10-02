@@ -1,0 +1,62 @@
+[
+  {
+    "output": "public/assets/optimized/painting.jpg",
+    "origin": "public/assets/goldfinch-painting.jpg",
+    "bytes": 586155
+  },
+  {
+    "output": "public/assets/optimized/painting-empty.jpg",
+    "origin": "public/assets/generations/painting-empty-v1.png",
+    "bytes": 528228
+  },
+  {
+    "output": "public/assets/optimized/met.jpg",
+    "origin": "public/assets/generations/met-v1.png",
+    "bytes": 492379
+  },
+  {
+    "output": "public/assets/optimized/shop.jpg",
+    "origin": "public/assets/generations/shop-calibration-v1.png",
+    "bytes": 544991
+  },
+  {
+    "output": "public/assets/optimized/vegas-day.jpg",
+    "origin": "public/assets/generations/vegas-day-v1.png",
+    "bytes": 699367
+  },
+  {
+    "output": "public/assets/optimized/vegas-night.jpg",
+    "origin": "public/assets/generations/vegas-dusk-v1.png",
+    "bytes": 609206
+  },
+  {
+    "output": "public/assets/optimized/amsterdam.jpg",
+    "origin": "public/assets/generations/amsterdam-calibration-v4.png",
+    "bytes": 514200
+  },
+  {
+    "output": "public/assets/optimized/bosschaert.jpg",
+    "origin": "public/assets/art/bosschaert.jpg",
+    "bytes": 486436
+  },
+  {
+    "output": "public/assets/optimized/burton.jpg",
+    "origin": "public/assets/art/burton.jpg",
+    "bytes": 391894
+  },
+  {
+    "output": "public/assets/optimized/okeeffe-skull.jpg",
+    "origin": "public/assets/art/okeeffe-skull.jpg",
+    "bytes": 288885
+  },
+  {
+    "output": "public/assets/optimized/monet.jpg",
+    "origin": "public/assets/art/monet.jpg",
+    "bytes": 892612
+  },
+  {
+    "output": "public/assets/optimized/okeeffe-clouds.jpg",
+    "origin": "public/assets/art/okeeffe-clouds.jpg",
+    "bytes": 297556
+  }
+]

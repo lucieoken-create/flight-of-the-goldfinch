@@ -1,49 +1,449 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-15T00:00:00Z",
+  "generatedAt": "2026-10-02T01:06:52.129973+00:00",
   "title": "Design System: Flight of the Goldfinch",
   "extensions": {
     "colorMeta": {
-      "night": { "role": "neutral", "displayName": "Night", "canonical": "#14100c", "tonalRamp": ["#14100c", "#2b241c", "#4c4032", "#645c4f", "#827563", "#a0917a", "#c8bead", "#e8e2d7"] },
-      "gilt": { "role": "primary", "displayName": "Gilt", "canonical": "#c9a24b", "tonalRamp": ["#2b1c08", "#54370b", "#79500e", "#986111", "#b8842d", "#c9a24b", "#dfc887", "#f3e8c8"] },
-      "canal-blue": { "role": "secondary", "displayName": "Canal Blue", "canonical": "#33445f", "tonalRamp": ["#101722", "#1c293b", "#33445f", "#4e6486", "#7286a3", "#99a9bf", "#c2ccd8", "#edf0f4"] }
+      "night": {
+        "role": "neutral",
+        "displayName": "Night",
+        "tonalRamp": [
+          "#14100c",
+          "#2b241c",
+          "#4c4032",
+          "#645c4f",
+          "#827563",
+          "#a0917a",
+          "#c8bead",
+          "#e8e2d7"
+        ]
+      },
+      "panel-shadow": {
+        "role": "neutral",
+        "displayName": "Panel Shadow",
+        "tonalRamp": [
+          "oklch(15.00% 0.0281 71.13)",
+          "oklch(26.43% 0.0281 71.13)",
+          "oklch(37.86% 0.0281 71.13)",
+          "oklch(49.29% 0.0281 71.13)",
+          "oklch(60.71% 0.0281 71.13)",
+          "oklch(72.14% 0.0281 71.13)",
+          "oklch(83.57% 0.0281 71.13)",
+          "oklch(95.00% 0.0281 71.13)"
+        ]
+      },
+      "umber": {
+        "role": "neutral",
+        "displayName": "Umber",
+        "tonalRamp": [
+          "oklch(15.00% 0.0227 79.99)",
+          "oklch(26.43% 0.0227 79.99)",
+          "oklch(37.86% 0.0227 79.99)",
+          "oklch(49.29% 0.0227 79.99)",
+          "oklch(60.71% 0.0227 79.99)",
+          "oklch(72.14% 0.0227 79.99)",
+          "oklch(83.57% 0.0227 79.99)",
+          "oklch(95.00% 0.0227 79.99)"
+        ]
+      },
+      "feather": {
+        "role": "neutral",
+        "displayName": "Feather",
+        "tonalRamp": [
+          "oklch(15.00% 0.0373 78.52)",
+          "oklch(26.43% 0.0373 78.52)",
+          "oklch(37.86% 0.0373 78.52)",
+          "oklch(49.29% 0.0373 78.52)",
+          "oklch(60.71% 0.0373 78.52)",
+          "oklch(72.14% 0.0373 78.52)",
+          "oklch(83.57% 0.0373 78.52)",
+          "oklch(95.00% 0.0373 78.52)"
+        ]
+      },
+      "plaster-mid": {
+        "role": "neutral",
+        "displayName": "Plaster Mid",
+        "tonalRamp": [
+          "oklch(15.00% 0.0260 81.11)",
+          "oklch(26.43% 0.0260 81.11)",
+          "oklch(37.86% 0.0260 81.11)",
+          "oklch(49.29% 0.0260 81.11)",
+          "oklch(60.71% 0.0260 81.11)",
+          "oklch(72.14% 0.0260 81.11)",
+          "oklch(83.57% 0.0260 81.11)",
+          "oklch(95.00% 0.0260 81.11)"
+        ]
+      },
+      "plaster": {
+        "role": "neutral",
+        "displayName": "Plaster",
+        "tonalRamp": [
+          "oklch(15.00% 0.0247 85.79)",
+          "oklch(26.43% 0.0247 85.79)",
+          "oklch(37.86% 0.0247 85.79)",
+          "oklch(49.29% 0.0247 85.79)",
+          "oklch(60.71% 0.0247 85.79)",
+          "oklch(72.14% 0.0247 85.79)",
+          "oklch(83.57% 0.0247 85.79)",
+          "oklch(95.00% 0.0247 85.79)"
+        ]
+      },
+      "gilt": {
+        "role": "primary",
+        "displayName": "Gilt",
+        "tonalRamp": [
+          "#2b1c08",
+          "#54370b",
+          "#79500e",
+          "#986111",
+          "#b8842d",
+          "#c9a24b",
+          "#dfc887",
+          "#f3e8c8"
+        ]
+      },
+      "quote-ivory": {
+        "role": "neutral",
+        "displayName": "Quote Ivory",
+        "tonalRamp": [
+          "oklch(15.00% 0.0160 82.79)",
+          "oklch(26.43% 0.0160 82.79)",
+          "oklch(37.86% 0.0160 82.79)",
+          "oklch(49.29% 0.0160 82.79)",
+          "oklch(60.71% 0.0160 82.79)",
+          "oklch(72.14% 0.0160 82.79)",
+          "oklch(83.57% 0.0160 82.79)",
+          "oklch(95.00% 0.0160 82.79)"
+        ]
+      },
+      "room-umber": {
+        "role": "neutral",
+        "displayName": "Room Umber",
+        "tonalRamp": [
+          "oklch(15.00% 0.0208 66.81)",
+          "oklch(26.43% 0.0208 66.81)",
+          "oklch(37.86% 0.0208 66.81)",
+          "oklch(49.29% 0.0208 66.81)",
+          "oklch(60.71% 0.0208 66.81)",
+          "oklch(72.14% 0.0208 66.81)",
+          "oklch(83.57% 0.0208 66.81)",
+          "oklch(95.00% 0.0208 66.81)"
+        ]
+      },
+      "museum-light": {
+        "role": "neutral",
+        "displayName": "Museum Light",
+        "tonalRamp": [
+          "oklch(15.00% 0.0766 79.52 / 0.0706)",
+          "oklch(26.43% 0.0766 79.52 / 0.0706)",
+          "oklch(37.86% 0.0766 79.52 / 0.0706)",
+          "oklch(49.29% 0.0766 79.52 / 0.0706)",
+          "oklch(60.71% 0.0766 79.52 / 0.0706)",
+          "oklch(72.14% 0.0766 79.52 / 0.0706)",
+          "oklch(83.57% 0.0766 79.52 / 0.0706)",
+          "oklch(95.00% 0.0766 79.52 / 0.0706)"
+        ]
+      },
+      "museum-shadow": {
+        "role": "neutral",
+        "displayName": "Museum Shadow",
+        "tonalRamp": [
+          "oklch(15.00% 0.0063 91.69)",
+          "oklch(26.43% 0.0063 91.69)",
+          "oklch(37.86% 0.0063 91.69)",
+          "oklch(49.29% 0.0063 91.69)",
+          "oklch(60.71% 0.0063 91.69)",
+          "oklch(72.14% 0.0063 91.69)",
+          "oklch(83.57% 0.0063 91.69)",
+          "oklch(95.00% 0.0063 91.69)"
+        ]
+      },
+      "shop-light": {
+        "role": "neutral",
+        "displayName": "Shop Light",
+        "tonalRamp": [
+          "oklch(15.00% 0.1043 80.64 / 0.0784)",
+          "oklch(26.43% 0.1043 80.64 / 0.0784)",
+          "oklch(37.86% 0.1043 80.64 / 0.0784)",
+          "oklch(49.29% 0.1043 80.64 / 0.0784)",
+          "oklch(60.71% 0.1043 80.64 / 0.0784)",
+          "oklch(72.14% 0.1043 80.64 / 0.0784)",
+          "oklch(83.57% 0.1043 80.64 / 0.0784)",
+          "oklch(95.00% 0.1043 80.64 / 0.0784)"
+        ]
+      },
+      "vegas-heat": {
+        "role": "neutral",
+        "displayName": "Vegas Heat",
+        "tonalRamp": [
+          "oklch(15.00% 0.0913 45.89 / 0.1294)",
+          "oklch(26.43% 0.0913 45.89 / 0.1294)",
+          "oklch(37.86% 0.0913 45.89 / 0.1294)",
+          "oklch(49.29% 0.0913 45.89 / 0.1294)",
+          "oklch(60.71% 0.0913 45.89 / 0.1294)",
+          "oklch(72.14% 0.0913 45.89 / 0.1294)",
+          "oklch(83.57% 0.0913 45.89 / 0.1294)",
+          "oklch(95.00% 0.0913 45.89 / 0.1294)"
+        ]
+      },
+      "canal-shade": {
+        "role": "neutral",
+        "displayName": "Canal Shade",
+        "tonalRamp": [
+          "oklch(15.00% 0.0185 263.23 / 0.2588)",
+          "oklch(26.43% 0.0185 263.23 / 0.2588)",
+          "oklch(37.86% 0.0185 263.23 / 0.2588)",
+          "oklch(49.29% 0.0185 263.23 / 0.2588)",
+          "oklch(60.71% 0.0185 263.23 / 0.2588)",
+          "oklch(72.14% 0.0185 263.23 / 0.2588)",
+          "oklch(83.57% 0.0185 263.23 / 0.2588)",
+          "oklch(95.00% 0.0185 263.23 / 0.2588)"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Literary Display", "purpose": "Title and major literary emphasis." },
-      "quote": { "displayName": "Quotation", "purpose": "Every quotation from Donna Tartt." },
-      "apparatus": { "displayName": "Museum Apparatus", "purpose": "Credits, colophon, and controls." }
+      "display": {
+        "displayName": "Literary Display",
+        "purpose": "Italic opening title; phone scale is separately tuned."
+      },
+      "quote": {
+        "displayName": "Quotation",
+        "purpose": "Scene-positioned live quotations from Donna Tartt."
+      },
+      "gallery-quote": {
+        "displayName": "Gallery Quotation",
+        "purpose": "Centered long passage over the pale gallery wall."
+      },
+      "closing-quote": {
+        "displayName": "Closing Quotation",
+        "purpose": "Centered italic final passage."
+      },
+      "opening-credit": {
+        "displayName": "Opening Credit",
+        "purpose": "Source credit beneath the title."
+      },
+      "reading-quote": {
+        "displayName": "Reading Quotation",
+        "purpose": "Normal-flow quotations in the complete reading alternative."
+      },
+      "apparatus": {
+        "displayName": "Restart Apparatus",
+        "purpose": "Uppercase restart control; other supporting text has its own source styles."
+      },
+      "reflection": {
+        "displayName": "reflection",
+        "purpose": "Lucie's personal reflections, outside literary blockquotes."
+      },
+      "personal-passage": {
+        "displayName": "personal passage",
+        "purpose": "Opening and standalone transition thoughts."
+      },
+      "speaker": {
+        "displayName": "speaker",
+        "purpose": "Fictional speaker or narrator, below the quotation."
+      },
+      "artwork-title": {
+        "displayName": "artwork title",
+        "purpose": "Gallery painting title above its frame."
+      }
     },
     "shadows": [
-      { "name": "painting-depth", "value": "0 10px 28px rgba(0, 0, 0, 0.48)", "purpose": "Places the Fabritius panel inside the dark room." },
-      { "name": "bird-depth", "value": "0 0.42rem 0.5rem rgba(12, 9, 6, 0.32)", "purpose": "Separates the moving bird from atmospheric scenes." }
+      {
+        "name": "painting-depth",
+        "value": "0 14px 42px #09070580",
+        "purpose": "Places the Fabritius panel inside the dark room."
+      },
+      {
+        "name": "painting-room-edge",
+        "value": "28px 0 70px #100c09",
+        "purpose": "Carries the room edge across the museum reveal."
+      },
+      {
+        "name": "gallery-frame",
+        "value": "0 10px 25px #35241652",
+        "purpose": "Places the real artworks and empty frame against the wall."
+      },
+      {
+        "name": "quote-legibility",
+        "value": "0 2px 22px #080604bd",
+        "purpose": "Supports ivory quotation text over scene images; absent on the gallery quote."
+      }
     ],
     "motion": [
-      { "name": "scroll-scrub", "value": "0.75", "purpose": "Smooths the reversible master timeline." },
-      { "name": "confident-arrival", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Short opacity arrivals and canvas readiness." }
+      {
+        "name": "scroll-scrub",
+        "value": "true",
+        "purpose": "Direct GSAP ScrollTrigger scrubbing from 0\u201382.1713, mapped to the original 0\u201365.5 story score with four entrance units, three sky units, 3.6 bridge units and 6.0713 return units. Physical quotation reading distances remain unchanged."
+      },
+      {
+        "name": "entrance-rain",
+        "value": "scroll 7.05\u201314.15",
+        "purpose": "Deterministic canvas rain peaks across takeoff, then clears at the museum threshold."
+      },
+      {
+        "name": "scroll-input-smoothing",
+        "value": "0.16",
+        "purpose": "Lenis lerp smooths scroll input before the shared composition resolves."
+      },
+      {
+        "name": "path-interpolation",
+        "value": "Catmull\u2013Rom",
+        "purpose": "Interpolates authored bird positions, sizes, and orientation from the playhead."
+      },
+      {
+        "name": "departure-hold",
+        "value": "perched through 7.58; registered full-body takeoff poses through 8.56",
+        "purpose": "Restores the earlier full-body atlas registration with slimmer v4 source art. Closed-wing landmarks retain perch contact; open wings rotate and scale uniformly."
+      },
+      {
+        "name": "full-body-wingbeat",
+        "value": "phase = (time - 8.56) * 2 * PI",
+        "purpose": "Scrubs twelve complete generated flight poses per scroll unit."
+      },
+      {
+        "name": "restart-press",
+        "value": "160ms ease",
+        "purpose": "Gilt/plaster ink transition and 0.97 active scale; transitions are disabled for reduced motion."
+      }
     ],
     "breakpoints": [
-      { "name": "mobile", "value": "720px" }
-    ]
+      {
+        "name": "mobile-composition",
+        "value": "max-width: 720px"
+      },
+      {
+        "name": "short-viewport-reading",
+        "value": "(max-height: 520px) and (max-width: 1000px)"
+      },
+      {
+        "name": "reduced-motion-reading",
+        "value": "(prefers-reduced-motion: reduce)"
+      }
+    ],
+    "sceneTreatments": [
+      {
+        "name": "gallery-return",
+        "source": "public/assets/optimized/painting-empty.jpg; public/assets/optimized/painting.jpg; existing painted bird atlas",
+        "description": "A measured empty-frame aperture grows around the visitor at scroll 66.6\u201369.0. The camera settles by 71.7. Reversed takeoff poses land on the shared perch anchor by 72.25; only the final rest pose samples the original painting, kept opaque through the background handoff at 72.26\u201372.34. The closing quote starts at 75.3713 after one additional viewport of rest. Gallery viewing holds are longer; no new assets."
+      },
+      {
+        "name": "amsterdam-gallery-bridge",
+        "source": "public/assets/optimized/amsterdam.jpg",
+        "filter": "saturate(.83) brightness(.9)",
+        "arrivalShade": "#13120f",
+        "description": "The central bridge arch masks a forward camera passage at scroll 46.9\u201351.4. A traced opening and bounded canvas reveal the first real painting. 3.6 extra units preserve viewing holds. Bird emerges below the first painting; no new media."
+      },
+      {
+        "name": "vegas-amsterdam-sky",
+        "source": "public/assets/optimized/vegas-night.jpg; public/assets/optimized/amsterdam.jpg",
+        "filter": "Vegas: saturate(.87) brightness(.87); Amsterdam: saturate(.83) brightness(.9)",
+        "description": "A viewport-sized canvas follows a climb, sky-only blend and descent at scroll 38.5\u201343.2. Three added scroll units preserve quotation holds. No new artwork."
+      },
+      {
+        "name": "shop-to-vegas",
+        "source": "public/assets/optimized/cabinet-glass-v1.webp; full width, y=128\u20131376",
+        "filter": "blur(.6px) drop-shadow(14px 0 24px #100b0852); saturate(.82) brightness(.88)",
+        "arrivalShade": "#25190e",
+        "description": "Approved glass-front cabinet option 3 masks a lateral cut behind its central door stile at story 28.35\u201329.95. Door faces and handles remain visible. No additional scroll time."
+      },
+      {
+        "name": "rainy-entrance",
+        "filter": "saturate(.76) brightness(.85)",
+        "arrivalShade": "#17262c",
+        "asset": "public/assets/optimized/met-rain-entrance.jpg",
+        "description": "Generated connecting exterior with a measured doorway shell. Existing gallery and shop remain intact."
+      },
+      {
+        "name": "painting-room",
+        "background": "radial-gradient(ellipse at 63% 44%, #30271e, #17120e 67%)"
+      },
+      {
+        "name": "museum",
+        "filter": "saturate(.82) brightness(.91)",
+        "light": "linear-gradient(112deg, #e9c99512, transparent 62%)",
+        "shadow": "#100f0c"
+      },
+      {
+        "name": "shop",
+        "filter": "saturate(.83) brightness(.98)",
+        "light": "radial-gradient(ellipse at 36% 49%, #e6bc7214, transparent 40%)"
+      },
+      {
+        "name": "vegas",
+        "filter": "saturate(.87) brightness(.87)",
+        "light": "linear-gradient(transparent, #6c331521)"
+      },
+      {
+        "name": "amsterdam",
+        "filter": "saturate(.83) brightness(.9)",
+        "light": "linear-gradient(transparent 50%, #080c1442)"
+      },
+      {
+        "name": "vignette",
+        "background": "radial-gradient(ellipse at center, transparent 52%, #100b085c)"
+      },
+      {
+        "name": "bird-study",
+        "filter": "saturate(.9) brightness(.96)",
+        "limitation": "Regenerated slimmer v4 atlas with the previous full-body animation restored. Source-art match awaits visual review."
+      }
+    ],
+    "editorial": {
+      "addedScrollUnits": 20.5,
+      "source": "src/editorial.js",
+      "mobileReflection": "1rem / 1.5",
+      "mobileOpeningPanelScale": 0.6,
+      "flightScale": 1.242,
+      "restartWipe": "1.65s foreground pass using a dedicated 1254px transparent bird, preloaded near the gallery with the original atlas as fallback. Direct keyboard and reduced-motion return.",
+      "reflectionTreatment": "Option C: foliate corners and open gold rails with fixed-size nine-slice border geometry, translucent umber backing and pale gold Source Serif 4 italic.",
+      "reflectionTiming": "Quote appears over .5 score units; its note fades in from +.62 to +.96. No wall-clock delay.",
+      "resizeBehavior": "Keep the current reading score through width and height changes; align the reading article to the current passage for short-window fallback and restore the cinematic position on return.",
+      "colophonWidth": "min(29rem, 88vw)"
+    }
   },
   "components": [
     {
       "name": "Restart control",
       "kind": "button",
       "refersTo": "restart-button",
-      "description": "Returns the visitor to the beginning from the colophon.",
+      "description": "Returns to the beginning under a 1.65-second foreground bird swipe on pointer activation. Keyboard activation and reading mode return immediately.",
       "html": "<button class=\"ds-restart\" type=\"button\">Return to the beginning</button>",
-      "css": ".ds-restart { border: 0; background: transparent; color: #d8d0bf; font: 600 0.72rem/1.4 'Source Serif 4', Georgia, serif; letter-spacing: 0.13em; text-transform: uppercase; text-underline-offset: 0.3em; cursor: pointer; } .ds-restart:hover { color: #c9a24b; } .ds-restart:focus-visible { outline: 1px solid #c9a24b; outline-offset: 6px; }"
+      "css": ".ds-restart { display: inline-block; margin-top: 1.8rem; padding: .9rem .25rem; border: 0; border-bottom: 1px solid var(--gilt, #c9a24b); border-radius: 0; background: transparent; color: var(--gilt, #c9a24b); font-family: var(--font-ui, 'Source Serif 4', Georgia, serif); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: color 160ms ease, transform 160ms ease; } .ds-restart:active { transform: scale(.97); } .ds-restart:focus-visible { outline: 1px solid var(--gilt, #c9a24b); outline-offset: 6px; } @media (hover: hover) and (pointer: fine) { .ds-restart:hover { color: var(--plaster, #d8d0bf); } } @media (prefers-reduced-motion: reduce) { .ds-restart { transition-duration: 0s; } }"
     }
   ],
   "narrative": {
     "northStar": "The world inside the panel, filmed on old stock.",
-    "overview": "A continuous portfolio artwork with photographic bones beneath a painted, filmic atmosphere. The interface recedes and the visitor controls time through scroll.",
-    "keyCharacteristics": ["Old-master warmth", "Crisp literary typography", "Continuous reversible motion", "Real gallery artworks"],
-    "rules": [
-      { "name": "The Scarcity Rule", "body": "Gilt, red wax, and canal blue remain rare so they retain narrative force.", "section": "colors" },
-      { "name": "The Two Voices Rule", "body": "EB Garamond carries literature and Source Serif 4 carries apparatus; introduce no third typographic voice.", "section": "typography" }
+    "overview": "This is an Experience surface. The interface withdraws so the visitor inhabits one continuous artwork. Scenes retain real architecture, perspective, light, and spatial depth, but the final impression is a painting seen through haze, grain, warm varnish, and time.\n\nThe bird is the visual continuity device. Camera, bird path and wingbeat, lighting, and text share one reversible scroll playhead. The implemented passage travels from the panel through rain and the Met, into the shop, past the selected glass-front cabinet into Vegas, then through painted sky into Amsterdam and beneath its bridge into the art gallery. The gallery now passes through the empty frame and returns to the original painting with a registered landing. All major passages are implemented locally; final artistic review and possible copy edits remain. The cutout study was rejected. The restored full-body animation with regenerated slimmer art awaits visual review.",
+    "keyCharacteristics": [
+      "Old-master warmth interrupted by the cold canal blue of Amsterdam.",
+      "Crisp literary typography floating over atmospheric imagery.",
+      "Camera travel through retained painted architecture, controlled by scrolling.",
+      "Real paintings presented as themselves in the gallery finale."
     ],
-    "dos": ["Make every transition feel continuous and reversible.", "Keep the bird motionless when the visitor is motionless.", "Let the five real artworks remain clear and unobstructed."],
-    "donts": ["Do not add chapters, progress UI, sound, or a return-to-Hijinx link.", "Do not perform snow or a whiteout in Amsterdam.", "Do not bake quotations into imagery or repeat their attribution."]
+    "rules": [
+      {
+        "name": "The Scarcity Rule",
+        "body": "Gilt, red wax, and canal blue earn attention because they are rare. Do not distribute them evenly through the experience.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Literature and apparatus may differ in scale, case, spacing, and posture, but never introduce a third typographic voice.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do make every transition feel continuous and reversible.",
+      "Do preserve real perspective and photographic light beneath the painted treatment.",
+      "Do keep the bird visually consistent and motionless when the visitor is motionless.",
+      "Do let the gallery paintings remain clear, real, and unobstructed."
+    ],
+    "donts": [
+      "Don't divide the experience into visible chapters or navigable scenes.",
+      "Don't add sound, a progress indicator, or a return-to-Hijinx link in this iteration.",
+      "Don't perform snow, a whiteout, or other literal effects in Amsterdam.",
+      "Don't bake quotations into imagery or repeat their attribution after every passage.",
+      "Don't add motion that continues independently of scrolling."
+    ]
   }
 }

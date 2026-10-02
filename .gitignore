@@ -4,3 +4,10 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Local design exports and review captures
+output/
+.impeccable/review/**/*.png
+.impeccable/review/**/*.webp
+.impeccable/review/**/*.jpg
+.vercel/
