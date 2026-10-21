@@ -105,7 +105,7 @@ export function mountEditorial() {
     quote.replaceWith(pair);
     const attribution = document.createElement('footer');
     attribution.className = 'quote__speaker';
-    attribution.textContent = '- ' + speaker;
+    attribution.textContent = '\u2014 ' + speaker;
     quote.append(attribution);
     pair.append(quote);
     if (reflections[id]) pair.append(reflectionNote([reflections[id]], 'reflection'));

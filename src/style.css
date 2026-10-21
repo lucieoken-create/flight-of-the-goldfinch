@@ -75,16 +75,23 @@ button { font: inherit; }
 .quote { position: absolute; width: min(38vw, 38rem); margin: 0; opacity: 0; visibility: hidden; color: #f0eadf; font-family: var(--font-quote); text-shadow: 0 2px 22px #080604bd; }
 .quote .literary-quote > p { margin: 0; font-size: clamp(1.4rem, 2.2vw, 2.35rem); font-weight: 400; letter-spacing: -.015em; line-height: 1.27; text-wrap: pretty; }
 .literary-quote { margin: 0; }
-.quote__speaker { margin-top: .8rem; color: #d8d0bf; font: 400 .8rem/1.5 var(--font-ui); letter-spacing: .015em; }
+.quote__speaker { margin-top: 1rem; color: #e4c579; font: 600 .72rem/1.6 var(--font-ui); letter-spacing: .22em; text-transform: uppercase; }
 .quote .reflection { margin: 1.5rem 0 0; max-width: 52ch; color: var(--reflection-gold); font: italic 400 clamp(1rem, 1.18vw, 1.16rem)/1.55 var(--font-ui); letter-spacing: 0; text-wrap: pretty; }
-.reflection-note { box-sizing: border-box; border: 1px solid transparent; border-image: url('/assets/ui/reflection-frame.svg') 102 143 / 36px 50px / 10px stretch; border-radius: 16px; padding: 1.3rem 1.8rem; background: #17120e99; background-clip: padding-box; text-shadow: none; }
+/* Unboxed reflection notes: no panel; corner brackets float on the scene, a soft
+   text shadow keeps the gilt italic legible on dark paintings. The two brightest
+   scenes (shop, Vegas) get a whisper wash instead of a box. */
+.reflection-note { box-sizing: border-box; border: none; border-radius: 0; box-shadow: none; background: transparent; padding: 2.6rem 3rem 2.4rem 3rem; position: relative; text-shadow: 0 1px 14px rgba(8, 6, 4, .85), 0 0 30px rgba(8, 6, 4, .5); }
+.quote--shop-one .reflection-note, .quote--shop-two .reflection-note, .quote--vegas .reflection-note { background: linear-gradient(135deg, rgba(12, 9, 5, .34), rgba(12, 9, 5, .16) 70%, rgba(12, 9, 5, .05)); border-radius: 22px; }
+.reflection-note::before, .reflection-note::after { content: ''; display: block; width: 64px; height: 64px; position: absolute; background: url('/assets/ui/reflection-corner.svg') no-repeat; background-size: 100% 100%; }
+.reflection-note::before { top: -14px; left: -14px; }
+.reflection-note::after { bottom: -14px; right: -14px; transform: scale(-1, -1); }
 .reflection-note p { margin: 0 0 .85em; }
 .reflection-note p:last-child { margin-bottom: 0; }
 .quote--opening { left: 8%; top: 23%; width: 33%; }
 .quote--prologue { right: 7%; top: 10%; width: 40%; }
 .quote--met-one { left: 8%; top: 16%; width: 37%; }
 .quote--met-two { right: 7%; bottom: 11%; width: 39%; }
-.quote--met-one::before, .quote--shop-one::before, .quote--vegas::before { content: ''; position: absolute; z-index: -1; inset: -2rem; background: #14100cb8; filter: blur(28px); }
+.quote--met-one::before, .quote--shop-one::before, .quote--vegas::before { content: ''; position: absolute; z-index: -1; inset: -2rem; background: rgba(10, 7, 4, .3); filter: blur(40px); }
 .quote--shop-one { left: 7%; top: 13%; width: 40%; }
 .quote--shop-two { right: 7%; bottom: 12%; width: 35%; }
 .quote--vegas { left: 8%; top: 13%; width: 40%; }
@@ -176,3 +183,4 @@ button { font: inherit; }
   .reading blockquote { margin: 2rem auto; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0s !important; } }
+
