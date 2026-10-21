@@ -76,15 +76,19 @@ button { font: inherit; }
 .quote .literary-quote > p { margin: 0; font-size: clamp(1.4rem, 2.2vw, 2.35rem); font-weight: 400; letter-spacing: -.015em; line-height: 1.27; text-wrap: pretty; }
 .literary-quote { margin: 0; }
 .quote__speaker { margin-top: 1rem; color: #e4c579; font: 600 .72rem/1.6 var(--font-ui); letter-spacing: .22em; text-transform: uppercase; }
-.quote .reflection { margin: 3rem 0 0; max-width: 52ch; color: var(--reflection-gold); font: italic 400 clamp(1rem, 1.18vw, 1.16rem)/1.55 var(--font-ui); letter-spacing: 0; text-wrap: pretty; }
+.quote .reflection { margin: min(3rem, 5vh) 0 0; max-width: 52ch; color: var(--reflection-gold); font: italic 400 clamp(1rem, 1.18vw, 1.16rem)/1.55 var(--font-ui); letter-spacing: 0; text-wrap: pretty; }
+/* Scene layers move every frame (planes, cameras, fades); promoting them keeps
+   scale/opacity changes on the compositor so reverse scrolling doesn't re-raster. */
+.scene-plane, .met-arrival-camera, .met-arrival-shade, .met-light, .met-shadow,
+.shop-camera, .entrance-depth, .met-depth, .painting-empty, .painting-original { will-change: transform, opacity; }
 /* Unboxed reflection notes: no panel; corner brackets float on the scene, a soft
    text shadow keeps the gilt italic legible on dark paintings. The two brightest
    scenes (shop, Vegas) get a whisper wash instead of a box. */
-.reflection-note { box-sizing: border-box; border: none; border-radius: 0; box-shadow: none; background: transparent; padding: 2.6rem 3rem 2.4rem 3rem; position: relative; text-shadow: 0 1px 14px rgba(8, 6, 4, .85), 0 0 30px rgba(8, 6, 4, .5); }
+.reflection-note { box-sizing: border-box; border: none; border-radius: 0; box-shadow: none; background: transparent; padding: min(2.6rem, 4.4vh) min(3rem, 6.5vh) min(2.4rem, 4vh) min(3rem, 6.5vh); position: relative; text-shadow: 0 1px 14px rgba(8, 6, 4, .85), 0 0 30px rgba(8, 6, 4, .5); }
 .quote--shop-one .reflection-note, .quote--shop-two .reflection-note, .quote--vegas .reflection-note { background: linear-gradient(135deg, rgba(12, 9, 5, .34), rgba(12, 9, 5, .16) 70%, rgba(12, 9, 5, .05)); border-radius: 22px; }
-.reflection-note::before, .reflection-note::after { content: ''; display: block; width: 64px; height: 64px; position: absolute; background: url('/assets/ui/reflection-corner.svg') no-repeat; background-size: 100% 100%; }
-.reflection-note::before { top: -14px; left: -14px; }
-.reflection-note::after { bottom: -14px; right: -14px; transform: scale(-1, -1); }
+.reflection-note::before, .reflection-note::after { content: ''; display: block; width: min(64px, 8vh); height: min(64px, 8vh); position: absolute; background: url('/assets/ui/reflection-corner.svg') no-repeat; background-size: 100% 100%; }
+.reflection-note::before { top: max(-14px, -2.4vh); left: max(-14px, -2.4vh); }
+.reflection-note::after { bottom: max(-14px, -2.4vh); right: max(-14px, -2.4vh); transform: scale(-1, -1); }
 .reflection-note p { margin: 0 0 .85em; }
 .reflection-note p:last-child { margin-bottom: 0; }
 .quote--opening { left: 8%; top: 23%; width: 33%; }
@@ -147,7 +151,7 @@ button { font: inherit; }
 .reading section > img { display: block; width: 100%; height: auto; max-height: 80vh; object-fit: contain; margin: 0 auto 3rem; }
 .reading blockquote { max-width: 42rem; margin: 3rem auto; font: 400 clamp(1.5rem, 3vw, 2rem)/1.45 var(--font-quote); }
 .reading .reading-passage { max-width: 42rem; margin: 4rem auto; }
-.reading-passage blockquote { margin-bottom: 3rem; }
+.reading-passage blockquote { margin-bottom: min(3rem, 5vh); }
 .reading .reflection, .reading-reflection { font: italic 400 1.1rem/1.65 var(--font-ui); color: var(--reflection-gold); max-width: 58ch; margin: 2rem auto 4rem; }
 .reading .reflection { margin: 0; }
 .reading figure { margin: 4rem 0; }
