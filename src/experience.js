@@ -37,6 +37,11 @@ let size, centres, scrollTrigger, lenis, tick, requestedTime = 0;
 let cinematic = false;
 let failed = false;
 let configured = false, refreshing = false;
+let openingReady = false;
+loadImage($('.painting-original')).then(loaded => {
+  openingReady = loaded;
+  if (loaded && cinematic) render(requestedTime);
+});
 
 // Every scroll frame restates the whole score. Skip writes that would not
 // change anything, so phones only restyle what actually moved or faded.
@@ -263,7 +268,10 @@ function render(readingTime) {
   if (time > 24) { loadWorld('vegas'); loadWorld('woodwork'); }
   if (time > 31) loadWorld('amsterdam');
   if (time > 35) loadWorld('gallery');
-  if (requiredNames.some(name => !worlds[name].dataset.loaded) || (time > 7.4 && time < 58.5 && !birdReady)) {
+  // Before the departure only the original painting is on view, so the opening
+  // need not wait for the empty-perch derivative to arrive as well.
+  const ready = name => worlds[name].dataset.loaded || (name === 'painting' && travelTime < 7 && openingReady);
+  if (!requiredNames.every(ready) || (time > 7.4 && time < 58.5 && !birdReady)) {
     alpha($('#asset-status'), 1);
     return;
   }
