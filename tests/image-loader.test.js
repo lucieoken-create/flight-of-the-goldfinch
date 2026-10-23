@@ -35,3 +35,9 @@ test('an error after listeners were attached also resolves false', async () => {
   image.dispatchEvent(new Event('error'));
   assert.equal(await pending, false);
 });
+
+test('a loaded image whose decode never settles still resolves true', async () => {
+  const image = new ImageFixture({complete: true, width: 800});
+  image.decode = () => new Promise(() => {});
+  assert.equal(await createImageLoader()(image), true);
+});

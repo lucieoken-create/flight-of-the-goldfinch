@@ -35,6 +35,8 @@ button { font: inherit; }
 .world--gallery { z-index: 1; }
 .painting-room { position: absolute; inset: 0; background: radial-gradient(ellipse at 63% 44%, #30271e, #17120e 67%); box-shadow: 28px 0 70px #100c09; }
 .painting-panel { position: absolute; left: 0; top: 0; width: 35vw; height: 76vh; translate: -50% -50%; box-shadow: 0 14px 42px #09070580; will-change: transform; }
+/* Hold the panel back until the first full render has placed it. */
+:root:not([data-scroll-time]) .painting-panel { visibility: hidden; }
 .painting-panel img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
 .painting-empty { opacity: 0; }
 .painting-frame { position: absolute; inset: -13px; border: 13px ridge #77603e; box-shadow: 0 12px 28px #09070580; pointer-events: none; }

@@ -1,3 +1,5 @@
+const DECODE_WAIT = 600;
+
 // The opening image can finish (including fail) before JavaScript attaches.
 export function createImageLoader() {
   const pending = new Map();
@@ -10,7 +12,10 @@ export function createImageLoader() {
         settled = true;
         image.removeEventListener('load', finish);
         image.removeEventListener('error', finish);
-        try { await image.decode(); } catch { /* A failed image has no natural width. */ }
+        // Some browsers leave decode() pending for an image that is not yet
+        // painted, which held the opening on "Preparing" forever. A loaded
+        // image is usable either way, so stop waiting after a moment.
+        try { await Promise.race([image.decode(), new Promise(done => setTimeout(done, DECODE_WAIT))]); } catch { /* A failed image has no natural width. */ }
         resolve(image.naturalWidth > 0);
       };
       image.addEventListener('load', finish, { once: true });
