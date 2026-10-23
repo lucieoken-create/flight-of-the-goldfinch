@@ -26,6 +26,9 @@ const stage = $('.stage');
 const footer = $('#colophon');
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const shortViewport = window.matchMedia('(max-height: 520px) and (max-width: 1000px)');
+const coarsePointer = window.matchMedia('(pointer: coarse)');
+const scrollSpace = $('#scroll-space');
+const viewportProbe = $('#viewport-probe');
 const worlds = Object.fromEntries(['painting', 'entrance', 'met', 'shop', 'woodwork', 'vegas', 'amsterdam', 'gallery'].map(name => [name, $('#world-' + name)]));
 const quoteElements = quotations.map(([id, start, end]) => ({ element: $('#' + id), reflection: $('#' + id + ' .reflection'), start, end }));
 const loadImage = createImageLoader();
@@ -503,7 +506,8 @@ function configureMode() {
   gsap.ticker.lagSmoothing(0);
   refreshing = true;
   scrollTrigger = ScrollTrigger.create({
-    trigger: '#scroll-space', start: 'top top', end: 'bottom bottom',
+    // End against the toolbar-collapsed viewport so mobile toolbars never move it.
+    trigger: scrollSpace, start: 'top top', end: () => '+=' + Math.max(1, scrollSpace.offsetHeight - viewportProbe.offsetHeight),
     onUpdate: self => { if (!refreshing) render(self.progress * READING_END); },
   });
   refreshLayout(position);
@@ -517,8 +521,18 @@ makeReadingView();
 configureMode();
 reduced.addEventListener('change', configureMode);
 shortViewport.addEventListener('change', configureMode);
-let resizeFrame;
+let resizeFrame, toolbarFrame, resizeWidth = window.innerWidth;
 window.addEventListener('resize', () => {
+  // Phone toolbars change only the visible height as they slide in and out
+  // mid-scroll. Repaint at the new height without remeasuring the scroll
+  // track, which would stop momentum scrolling and snap the visitor's place.
+  const toolbarOnly = configured && coarsePointer.matches && window.innerWidth === resizeWidth;
+  resizeWidth = window.innerWidth;
+  if (toolbarOnly) {
+    cancelAnimationFrame(toolbarFrame);
+    toolbarFrame = requestAnimationFrame(() => { if (cinematic && !refreshing) measure(); });
+    return;
+  }
   const position = requestedTime;
   refreshing = true;
   cancelAnimationFrame(resizeFrame);
