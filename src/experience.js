@@ -38,12 +38,25 @@ let cinematic = false;
 let failed = false;
 let configured = false, refreshing = false;
 
+// Every scroll frame restates the whole score. Skip writes that would not
+// change anything, so phones only restyle what actually moved or faded.
+const written = new WeakMap();
+const setStyle = (element, property, value) => {
+  let values = written.get(element);
+  if (!values) written.set(element, values = {});
+  // The browser may reserialise a value (0.5000 → 0.5); compare against what
+  // it stored so a style reset elsewhere is still noticed.
+  const last = values[property];
+  if (last && last.value === value && element.style[property] === last.stored) return;
+  element.style[property] = value;
+  values[property] = { value, stored: element.style[property] };
+};
 const alpha = (element, opacity) => {
-  element.style.opacity = clamp(opacity).toFixed(4);
-  element.style.visibility = opacity > 0.001 ? 'visible' : 'hidden';
+  setStyle(element, 'opacity', clamp(opacity).toFixed(4));
+  setStyle(element, 'visibility', opacity > 0.001 ? 'visible' : 'hidden');
 };
 const move = (element, x, y, scale = 1, rotate = 0) => {
-  element.style.transform = 'translate3d(' + x.toFixed(3) + 'px,' + y.toFixed(3) + 'px,0) scale(' + scale.toFixed(5) + ') rotate(' + rotate.toFixed(3) + 'deg)';
+  setStyle(element, 'transform', 'translate3d(' + x.toFixed(3) + 'px,' + y.toFixed(3) + 'px,0) scale(' + scale.toFixed(5) + ') rotate(' + rotate.toFixed(3) + 'deg)');
 };
 
 function loadWorld(name) {
